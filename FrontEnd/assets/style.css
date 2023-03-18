@@ -136,6 +136,11 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.filterBar {
+	border: solid 1px crimson;
+	margin-bottom: 3rem;
+}
 .gallery {
 	width: 100%;
 	display: grid;

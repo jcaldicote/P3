@@ -8,3 +8,7 @@
 export function createAppend(name, elm) {
   return elm.appendChild(document.createElement(name));
 }
+
+export function createAppendFilter(name, elm) {
+  return elm.appendChild(document.createElement(name));
+}
