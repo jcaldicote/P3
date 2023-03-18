@@ -1,7 +1,6 @@
 import { fetchWorks } from './api.js';
 import { fetchFilterBar } from './api.js';
 import { createAppend } from './dom.js';
-import { createAppendFilter } from './dom.js';
 
 const gallery = document.querySelector('.gallery');
 const filterBar = document.querySelector('.filterBar');
@@ -27,11 +26,17 @@ async function main() {
 }
 main();
 
-//Affichage du menu filtre des travaux
+// Affichage du menu filtre des travaux
+
+function renderItemAll() {
+  const itemAll = createAppend('button', filterBar);
+  itemAll.textContent = 'Tous';
+}
 
 function renderWorkBar(workBar) {
-  const btnElm = createAppendFilter('button', filterBar);
+  const btnElm = createAppend('button', filterBar);
   btnElm.innerText = workBar.name;
+  bt;
 }
 
 function renderWorksBar(workBars) {
@@ -40,6 +45,7 @@ function renderWorksBar(workBars) {
 
 async function filterBarMenu() {
   const items = await fetchFilterBar();
+  renderItemAll();
   renderWorksBar(items);
 }
 
