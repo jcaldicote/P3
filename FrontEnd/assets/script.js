@@ -31,16 +31,19 @@ main();
 function renderItemAll() {
   const itemAll = createAppend('button', filterBar);
   itemAll.textContent = 'Tous';
+  itemAll.classList.add('btn0');
 }
 
 function renderWorkBar(workBar) {
   const btnElm = createAppend('button', filterBar);
   btnElm.innerText = workBar.name;
-  bt;
+  btnElm.classList.add(`btn${workBar.id}`);
 }
 
 function renderWorksBar(workBars) {
-  for (const item of workBars) renderWorkBar(item);
+  for (const item of workBars) {
+    renderWorkBar(item);
+  }
 }
 
 async function filterBarMenu() {
@@ -50,3 +53,45 @@ async function filterBarMenu() {
 }
 
 filterBarMenu();
+
+const resultFilter = await fetchWorks();
+
+//Rendu filtre 'Tous'
+const btnAllFilter = document.querySelector('.btn0');
+btnAllFilter.addEventListener('click', function () {
+  const objectsFilter = resultFilter.filter((object) => {
+    return object;
+  });
+  document.querySelector('.gallery').innerHTML = '';
+  renderWorks(objectsFilter);
+});
+
+//Rendu filtre 'Objets'
+const btnObjectFilter = document.querySelector('.btn1');
+btnObjectFilter.addEventListener('click', function () {
+  const objectsFilter = resultFilter.filter((object) => {
+    return object.category.name == 'Objets';
+  });
+  document.querySelector('.gallery').innerHTML = '';
+  renderWorks(objectsFilter);
+});
+
+//Rendu filtre 'Objets'
+const btnApartFilter = document.querySelector('.btn2');
+btnApartFilter.addEventListener('click', function () {
+  const objectsFilter = resultFilter.filter((object) => {
+    return object.category.name == 'Appartements';
+  });
+  document.querySelector('.gallery').innerHTML = '';
+  renderWorks(objectsFilter);
+});
+
+//Rendu filtre 'Hotels & restaurants'
+const btnHotelFilter = document.querySelector('.btn3');
+btnHotelFilter.addEventListener('click', function () {
+  const objectsFilter = resultFilter.filter((object) => {
+    return object.category.name == 'Hotels & restaurants';
+  });
+  document.querySelector('.gallery').innerHTML = '';
+  renderWorks(objectsFilter);
+});
