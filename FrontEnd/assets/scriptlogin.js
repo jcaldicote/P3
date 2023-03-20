@@ -11,4 +11,5 @@ function validate() {
   }
 }
 
-validate();
+///// pour empecher la page d'actualisté à chercher
+document.querySelector('#loginForm').addEventListener('submit', validate);
