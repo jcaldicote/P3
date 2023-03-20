@@ -76,7 +76,7 @@ btnObjectFilter.addEventListener('click', function () {
   renderWorks(objectsFilter);
 });
 
-//Rendu filtre 'Objets'
+//Rendu filtre 'Appartements'
 const btnApartFilter = document.querySelector('.btn2');
 btnApartFilter.addEventListener('click', function () {
   const objectsFilter = resultFilter.filter((object) => {
