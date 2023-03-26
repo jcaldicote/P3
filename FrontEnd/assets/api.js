@@ -33,14 +33,23 @@ async function apiFetch(method, url, body, options = {}) {
 
 export const fetchWorks = () => apiFetch('GET', '/api/works');
 
-// export async function fetchWorks() {
-//   const response = await fetch('http://localhost:5678/api/works');
-//   return response.json();
-// }
-
 export const fetchFilterBar = () => apiFetch('GET', '/api/categories');
 
-// export async function fetchFilterBar() {
-//   const response = await fetch('http://localhost:5678/api/categories');
-//   return response.json();
-// }
+//////////////////////////////////////////////////////////////////////////
+// let user = {
+//   email: 'sophie.bluel@test.tld',
+//   password: 'S0phie',
+// };
+
+// JSON.stringify(user);
+
+// let response = await fetch('http://localhost:5678/api/users/login', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json;charset=utf-8',
+//   },
+//   body: JSON.stringify(user),
+// });
+
+// let result = await response.json();
+// console.log(result);

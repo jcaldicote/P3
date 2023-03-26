@@ -1,15 +1,15 @@
 ////test login
 
-function validate() {
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  if (email === 'josephc@gmail.com' && password === 'azerty') {
-    alert('Authentification ok');
-    return false;
-  } else {
-    alert('Login / Password incorrect');
-  }
-}
-
-///// pour empecher la page d'actualisté à chercher
-document.querySelector('#loginForm').addEventListener('submit', validate);
+const formEl = document.querySelector('#loginForm');
+formEl.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(formEl);
+  const data = Object.fromEntries(formData);
+  fetch('http://localhost:5678/api/users/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    body: JSON.stringify(data),
+  });
+});
