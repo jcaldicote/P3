@@ -53,3 +53,5 @@ export const fetchFilterBar = () => apiFetch('GET', '/api/categories');
 
 // let result = await response.json();
 // console.log(result);
+
+//////////////////
