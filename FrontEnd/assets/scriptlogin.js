@@ -1,21 +1,19 @@
+import { fetchLogin } from "./api.js";
+import { tokenSave } from "./auth.js";
+
 ////test login
+const formEl = document.querySelector("#loginForm");
+formEl.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const body = {
+    email: formEl.email.value,
+    password: formEl.password.value,
+  };
+  const res = await fetchLogin(body);
+  // pas enregistrer si pas de token
+  tokenSave(res.token);
 
-function login() {
-  const formEl = document.querySelector('#loginForm');
-  formEl.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const formData = new FormData(formEl);
-    const data = Object.fromEntries(formData);
-    fetch('http://localhost:5678/api/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((res) => sessionStorage.setItem('token', res.token));
-  });
-}
+  // afficher les messages d'erreur si il y en a ( faire disparaitre avant le fetch)
 
-login();
+  // si connecté , rediriger
+});
