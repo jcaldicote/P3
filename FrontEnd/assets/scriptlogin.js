@@ -12,7 +12,9 @@ function login() {
         'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(data),
-    }).then((res) => console.log(res.json()));
+    })
+      .then((res) => res.json())
+      .then((res) => sessionStorage.setItem('token', res.token));
   });
 }
 
