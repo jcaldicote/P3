@@ -46,24 +46,3 @@ export const fetchWorks = () => apiFetch("GET", "/api/works");
 export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
 
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
-
-//////////////////////////////////////////////////////////////////////////
-// let user = {
-//   email: 'sophie.bluel@test.tld',
-//   password: 'S0phie',
-// };
-
-// JSON.stringify(user);
-
-// let response = await fetch('http://localhost:5678/api/users/login', {
-//   method: 'POST',
-//   headers: {
-//     'Content-Type': 'application/json;charset=utf-8',
-//   },
-//   body: JSON.stringify(user),
-// });
-
-// let result = await response.json();
-// console.log(result);
-
-//////////////////

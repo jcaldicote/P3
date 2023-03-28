@@ -120,7 +120,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -131,7 +131,7 @@ table {
 body {
   max-width: 1140px;
   margin: auto;
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   font-size: 14px;
   background-color: #fffef8;
 }
@@ -148,20 +148,20 @@ section {
 h1 {
   display: flex;
   flex-direction: column;
-  font-family: 'Syne';
+  font-family: "Syne";
   font-size: 22px;
   font-weight: 800;
   color: #b1663c;
 }
 
 h1 > span {
-  font-family: 'Work Sans';
+  font-family: "Work Sans";
   font-size: 10px;
   letter-spacing: 0.1em;
 }
 
 h2 {
-  font-family: 'Syne';
+  font-family: "Syne";
   font-weight: 700;
   font-size: 30px;
   color: #1d6154;
@@ -174,11 +174,10 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
-  
 }
 nav li a {
-	text-decoration: none;
-	color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 nav .loginNav {
@@ -294,8 +293,13 @@ li a:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 } */
 
-input[type='submit'] {
-  font-family: 'Syne';
+.loginReject {
+  color: red;
+  display: none;
+}
+
+input[type="submit"] {
+  font-family: "Syne";
   font-weight: 700;
   color: white;
   background-color: #1d6154;
@@ -303,21 +307,21 @@ input[type='submit'] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
-input[type='submit']:hover {
-  color:yellow;
+input[type="submit"]:hover {
+  color: yellow;
 }
 
 h3 {
-  font-family: 'Work Sans';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 16px;
-text-decoration-line: underline;
-color: #3D3D3D;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration-line: underline;
+  color: #3d3d3d;
 }
 
 footer nav ul {
@@ -326,5 +330,4 @@ footer nav ul {
   margin: 2em;
   background: white;
   height: 60px;
-  
 }

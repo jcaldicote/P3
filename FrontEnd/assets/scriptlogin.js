@@ -10,8 +10,16 @@ formEl.addEventListener("submit", async (e) => {
     password: formEl.password.value,
   };
   const res = await fetchLogin(body);
+  if (res.token == undefined) {
+    console.log("pas de token");
+    localStorage.clear();
+  } else {
+    tokenSave(res.token);
+    location.pathname = "/";
+  }
+
   // pas enregistrer si pas de token
-  tokenSave(res.token);
+  // tokenSave(res.token);
 
   // afficher les messages d'erreur si il y en a ( faire disparaitre avant le fetch)
 
