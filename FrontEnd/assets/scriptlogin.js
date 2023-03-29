@@ -3,6 +3,8 @@ import { tokenSave } from "./auth.js";
 
 ////test login
 const formEl = document.querySelector("#loginForm");
+const loginReject = document.querySelector(".loginReject");
+const hideLoginReject = document.querySelector(".hideoginReject");
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
   const body = {
@@ -11,7 +13,11 @@ formEl.addEventListener("submit", async (e) => {
   };
   const res = await fetchLogin(body);
   if (res.token == undefined) {
-    console.log("pas de token");
+    loginReject.style.display = "block";
+    loginReject.addEventListener("mouseover", function (event) {
+      event.target.style.display = "none";
+    });
+
     localStorage.clear();
   } else {
     tokenSave(res.token);
