@@ -172,6 +172,7 @@ h2 a {
   text-decoration: none;
   font-family: "Work Sans";
   color: black;
+  font-weight: 400;
 }
 
 h2 .fa-sharp {
@@ -193,7 +194,13 @@ nav ul {
 
 .editingMode .fa-sharp {
   color: white;
-  margin: 0 12px;
+  margin: 10px 12px;
+}
+.editingMode .change {
+  color: black;
+  background-color: white;
+  border-radius: 60px;
+  font-weight: bold;
 }
 body li,
 nav li {
@@ -231,13 +238,16 @@ li a:hover {
 }
 
 figure a {
-  margin: 15px 0 0 55px;
-  display: inline-block;
+  margin-left: 55px;
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 figure a .fa-sharp {
   margin-right: 11px;
+}
+
+figure .space {
+  padding: 5px;
 }
 
 #introduction article {

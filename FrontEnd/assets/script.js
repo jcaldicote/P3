@@ -74,7 +74,7 @@ const resultFilter = await fetchWorks();
 
 if (check()) {
   for (let i of isAdmin) {
-    i.style.display = "block";
+    i.style.display = "inline";
   }
   for (let i of isAdminHide) i.style.display = "none";
 }
