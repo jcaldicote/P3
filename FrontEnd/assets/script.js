@@ -76,7 +76,5 @@ if (check()) {
   for (let i of isAdmin) {
     i.style.display = "block";
   }
-  for (let i of isAdminHide) {
-    i.style.display = "none";
-  }
+  for (let i of isAdminHide) i.style.display = "none";
 }

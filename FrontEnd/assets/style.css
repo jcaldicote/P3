@@ -166,20 +166,49 @@ h2 {
   font-size: 30px;
   color: #1d6154;
 }
+
+h2 a {
+  font-size: 14px;
+  text-decoration: none;
+  font-family: "Work Sans";
+  color: black;
+}
+
+h2 .fa-sharp {
+  margin: 0 11px 0 30px;
+}
 nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
+.editingMode {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: center;
+  background-color: #000000;
+  color: white;
+}
+
+.editingMode .fa-sharp {
+  color: white;
+  margin: 0 12px;
+}
+body li,
 nav li {
-  padding: 0 10px;
-  font-size: 1.2em;
+  padding: 10px 10px;
+  font-size: 16px;
 }
 nav li a {
   text-decoration: none;
   color: #000000;
 }
 
+nav img {
+  height: 20px;
+  width: 20px;
+}
 li a:hover {
   color: #b1663c;
   font-weight: 600;
@@ -199,6 +228,16 @@ li a:hover {
   display: block;
   margin-left: 55px;
   width: 80%;
+}
+
+figure a {
+  margin: 15px 0 0 55px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+figure a .fa-sharp {
+  margin-right: 11px;
 }
 
 #introduction article {

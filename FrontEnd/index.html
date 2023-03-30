@@ -10,10 +10,23 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
+    <div class="isAdmin">
+      <ul class="editingMode">
+        <li><i class="fa-sharp fa-solid fa-pen-to-square"></i>Mode édition</li>
+        <li>publier les changements</li>
+      </ul>
+    </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
       <nav>
@@ -30,6 +43,9 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
+          <a class="isAdmin" href=""
+            ><i class="fa-sharp fa-solid fa-pen-to-square"></i>modifier</a
+          >
         </figure>
         <article>
           <h2>Designer d'espace</h2>
@@ -50,9 +66,15 @@
           </p>
         </article>
       </section>
+
       <section id="portfolio">
-        <h2>Mes projets</h2>
-        <div class="filterBar"></div>
+        <h2>
+          Mes projets
+          <a class="isAdmin" href=""
+            ><i class="fa-sharp fa-solid fa-pen-to-square"></i>modifier</a
+          >
+        </h2>
+        <div class="filterBar isAdminHide"></div>
         <div class="gallery"></div>
       </section>
       <section id="contact">

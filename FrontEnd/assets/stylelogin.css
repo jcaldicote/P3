@@ -188,75 +188,11 @@ li a:hover {
   color: black;
   font-weight: 600;
 }
-/* #introduction {
-  display: flex;
-  align-items: center;
-}
-#introduction figure {
-  flex: 1;
-}
-#introduction img {
-  display: block;
-  margin-left: 55px;
-  width: 80%;
+nav img {
+  height: 20px;
+  width: 20px;
 }
 
-#introduction article {
-  flex: 1;
-  margin-right: 55px;
-}
-#introduction h2 {
-  margin-bottom: 1em;
-}
-
-#introduction p {
-  margin-bottom: 0.5em;
-}
-
-#portfolio {
-  margin: 0 55px;
-}
-
-#portfolio h2 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.filterBar {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.filterBar button {
-  color: #1d6154;
-  font-size: 16px;
-  background: transparent;
-  padding: 9px 30px;
-  border: 1px solid #1d6154;
-  border-radius: 60px;
-  font-weight: 700;
-  font-family: 'Syne';
-  cursor: pointer;
-}
-
-.filterBar button:hover {
-  color: #ffffff;
-  background: #1d6154;
-}
-.gallery {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  color: #3d3d3d;
-}
-
-.gallery img {
-  width: 100%;
-} */
 #login {
   width: 50%;
   margin: auto;
