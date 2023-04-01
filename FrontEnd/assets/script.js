@@ -78,3 +78,13 @@ if (check()) {
   }
   for (let i of isAdminHide) i.style.display = "none";
 }
+
+// pour la partie Logout
+
+const logOut = document.querySelector(".logOut");
+
+logOut.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  location.pathname = "/";
+});
