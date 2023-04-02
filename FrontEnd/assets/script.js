@@ -70,7 +70,7 @@ filterBarMenu();
 
 const resultFilter = await fetchWorks();
 
-// pour la partie edition de la page d'acceuil
+// pour la partie mode edition de la page d'acceuil
 
 if (check()) {
   for (let i of isAdmin) {
