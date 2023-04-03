@@ -54,6 +54,10 @@
   /* max-width: 420px */
   aspect-ratio: 420/433;
   border-bottom: 1px solid #b3b3b3;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 6px;
+  grid-row-gap: 12px;
 }
 
 .modal-footer {
@@ -82,4 +86,17 @@
   color: #d65353;
   font-family: "Syne";
   font-size: 12px;
+}
+
+/* .modal-body {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  color: #3d3d3d;
+} */
+
+.modal-body img {
+  width: 100%;
 }
