@@ -22,7 +22,10 @@ modalButtons.addEventListener("click", function (e) {
   function renderWorkModal(work) {
     const workElm = createAppend("figure", modalBody);
     const imgElm = createAppend("img", workElm);
+    const imgElm2 = createAppend("i", workElm);
     imgElm.src = work.imageUrl;
+    imgElm2.classList.add("fa-regular");
+    imgElm2.classList.add("fa-trash-can");
 
     const titreElm = createAppend("figcaption", workElm);
     titreElm.innerText = "éditer";

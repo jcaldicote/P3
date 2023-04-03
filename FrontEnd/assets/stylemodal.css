@@ -37,6 +37,7 @@
   right: 36px;
   cursor: pointer;
   font-weight: 700;
+  font-size: 18px;
 }
 
 .modal-header {
@@ -100,3 +101,9 @@
 .modal-body img {
   width: 100%;
 }
+
+/* .fa-regular {
+  color: red;
+  z-index: 1000;
+  margin-right: auto;
+} */
