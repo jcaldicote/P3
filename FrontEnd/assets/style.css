@@ -250,6 +250,15 @@ figure .space {
   padding: 5px;
 }
 
+.isAdminModal {
+  text-decoration: none;
+  color: inherit;
+  display: none;
+}
+.isAdminModal .fa-sharp {
+  margin: 0 12px 12px 0;
+}
+
 #introduction article {
   flex: 1;
   margin-right: 55px;

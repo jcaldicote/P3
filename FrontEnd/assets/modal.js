@@ -1,4 +1,5 @@
 const modalButtons = document.querySelectorAll("[data-toggle = modal");
+const modalModifyButton = document.querySelector(".isAdminModal");
 
 for (let button of modalButtons) {
   button.addEventListener("click", function (e) {
@@ -9,6 +10,7 @@ for (let button of modalButtons) {
     let modal = document.querySelector(target);
 
     modal.classList.add("show");
+    modalModifyButton.style.display = "block";
 
     //pour fermer la modale
 
@@ -16,10 +18,12 @@ for (let button of modalButtons) {
     for (let close of modalClose) {
       close.addEventListener("click", () => {
         modal.classList.remove("show");
+        modalModifyButton.style.display = "none";
       });
     }
     modal.addEventListener("click", function () {
       this.classList.remove("show");
+      modalModifyButton.style.display = "none";
     });
     modal.children[0].addEventListener("click", function (e) {
       e.stopPropagation();

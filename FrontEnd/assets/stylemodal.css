@@ -1,9 +1,9 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  text-decoration: none;
 }
 
 .modal {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.45);
   position: fixed;
   top: 0;
   right: 0;
@@ -23,43 +23,63 @@ body {
 
 .modal-content {
   background-color: white;
-  max-width: 90vw;
+  max-width: 630px;
+  max-height: 730px;
   margin: auto;
-  flex: 1;
+  /* flex: 1; */
   position: relative;
+  border-radius: 10px;
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 32px;
+  right: 36px;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .modal-header {
-  padding-left: 10px;
-  border-bottom: 1px solid #b3b3b3;
+  font-family: "Work Sans";
+  font-size: 26px;
+  text-align: center;
+  font-weight: 400;
+  margin: 60px 228px 46px 228px;
 }
 
 .modal-body {
-  padding: 10px;
-  max-height: 80vh;
+  margin: 0 105px;
+  /* max-height: 433px; */
   overflow-y: auto;
+  /* max-width: 420px */
+  aspect-ratio: 420/433;
+  border-bottom: 1px solid #b3b3b3;
 }
 
 .modal-footer {
-  padding: 10px;
-  border-top: 1px solid #b3b3b3;
-  text-align: right;
+  text-align: center;
 }
 
-.btn {
-  padding: 5px;
-  background-color: darkcyan;
+.modal-footer .addPicModal {
+  margin: 48px 0 32px 0;
+}
+
+.addPic {
+  padding: 10px 49px;
+  font-family: "Syne";
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #1d6154;
   color: white;
-  text-decoration: none;
+  border-radius: 60px;
 }
 
-.btn-close {
-  background-color: red;
+.delPicModal {
+  margin-bottom: 48px;
+}
+
+.delPic {
+  color: #d65353;
+  font-family: "Syne";
+  font-size: 12px;
 }
