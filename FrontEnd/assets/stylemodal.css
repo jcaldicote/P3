@@ -53,7 +53,7 @@
   /* max-height: 433px; */
   overflow-y: auto;
   /* max-width: 420px */
-  aspect-ratio: 420/433;
+  aspect-ratio: 422/436;
   border-bottom: 1px solid #b3b3b3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -102,8 +102,44 @@
   width: 100%;
 }
 
-/* .fa-regular {
-  color: red;
-  z-index: 1000;
-  margin-right: auto;
-} */
+.modal-body figure {
+  position: relative;
+}
+
+.divIconElmGlobal {
+  position: absolute;
+  display: flex;
+  gap: 3px;
+  right: 4px;
+  top: 4px;
+}
+
+.divIconElm1,
+.divIconElm2 {
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.divIconElm2 {
+  background-color: black;
+  cursor: pointer;
+}
+
+.divIconElm1 {
+  background-color: transparent;
+  cursor: pointer;
+}
+.divIconElm1:hover {
+  background-color: black;
+}
+
+.fa-solid {
+  color: transparent;
+}
+.fa-solid:hover {
+  color: white;
+}
+
+.fa-regular {
+  color: white;
+}

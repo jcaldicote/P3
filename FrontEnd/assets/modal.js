@@ -10,11 +10,26 @@ const modalClose = modal.querySelector("[data-dismiss=dialog]");
 
 function renderWorkModal(work) {
   const workElm = createAppend("figure", modalBody);
+
+  const divIconElmGlobal = createAppend("div", workElm);
+  divIconElmGlobal.classList.add("divIconElmGlobal");
+
+  const divIconElm1 = createAppend("div", divIconElmGlobal);
+  divIconElm1.classList.add("divIconElm1");
+
+  const divIconElm2 = createAppend("div", divIconElmGlobal);
+  divIconElm2.classList.add("divIconElm2");
+
+  const iconElm1 = createAppend("i", divIconElm1);
+  iconElm1.classList.add("fa-solid");
+  iconElm1.classList.add("fa-maximize");
+
+  const iconElm2 = createAppend("i", divIconElm2);
+  iconElm2.classList.add("fa-regular");
+  iconElm2.classList.add("fa-trash-can");
+
   const imgElm = createAppend("img", workElm);
-  const imgElm2 = createAppend("i", workElm);
   imgElm.src = work.imageUrl;
-  imgElm2.classList.add("fa-regular");
-  imgElm2.classList.add("fa-trash-can");
 
   const titreElm = createAppend("figcaption", workElm);
   titreElm.innerText = "éditer";
