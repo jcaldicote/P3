@@ -20,9 +20,11 @@ function renderWorkModal(work) {
   const divIconElm2 = createAppend("div", divIconElmGlobal);
   divIconElm2.classList.add("divIconElm2");
 
-  const iconElm1 = createAppend("i", divIconElm1);
-  iconElm1.classList.add("fa-solid");
-  iconElm1.classList.add("fa-maximize");
+  //   const iconElm1 = createAppend("i", divIconElm1);
+  //   iconElm1.classList.add("uil");
+  //   iconElm1.classList.add("uil-expand-arrows");
+  const iconElm1 = createAppend("img", divIconElm1);
+  iconElm1.src = "./assets/images/arrow_.svg";
 
   const iconElm2 = createAppend("i", divIconElm2);
   iconElm2.classList.add("fa-regular");
