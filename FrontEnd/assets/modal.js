@@ -83,7 +83,7 @@ async function getID() {
   return ids;
 }
 
-const deleteBtn = document.querySelectorAll("img");
+const deleteBtn = document.querySelectorAll(".fa-regular");
 const ids = await getID();
 
 deleteBtn.forEach((button, index) => {
