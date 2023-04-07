@@ -1,10 +1,11 @@
 import { fetchLogin } from "./api.js";
 import { tokenSave } from "./auth.js";
 
-////test login
+////phase du Login
+
 const formEl = document.querySelector("#loginForm");
 const loginReject = document.querySelector(".loginReject");
-const hideLoginReject = document.querySelector(".hideoginReject");
+
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
   const body = {
@@ -23,11 +24,4 @@ formEl.addEventListener("submit", async (e) => {
     tokenSave(res.token);
     location.pathname = "/";
   }
-
-  // pas enregistrer si pas de token
-  // tokenSave(res.token);
-
-  // afficher les messages d'erreur si il y en a ( faire disparaitre avant le fetch)
-
-  // si connecté , rediriger
 });

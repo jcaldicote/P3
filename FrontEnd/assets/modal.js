@@ -20,9 +20,6 @@ function renderWorkModal(work) {
   const divIconElm2 = createAppend("div", divIconElmGlobal);
   divIconElm2.classList.add("divIconElm2");
 
-  //   const iconElm1 = createAppend("i", divIconElm1);
-  //   iconElm1.classList.add("uil");
-  //   iconElm1.classList.add("uil-expand-arrows");
   const iconElm1 = createAppend("img", divIconElm1);
   iconElm1.src = "./assets/images/arrow_.svg";
 
@@ -75,5 +72,31 @@ modalButtons.addEventListener("click", function (e) {
   });
   modal.children[0].addEventListener("click", function (e) {
     e.stopPropagation();
+  });
+});
+
+// Test pour la suppression des travaux
+
+async function getID() {
+  const data2 = await fetchWorks();
+  const ids = data2.map(({ id }) => id);
+  return ids;
+}
+
+const deleteBtn = document.querySelectorAll("img");
+const ids = await getID();
+
+deleteBtn.forEach((button, index) => {
+  button.addEventListener("click", async (event) => {
+    let id = ids[index];
+    const Url = `http://localhost:5678/api/works/${id}`;
+    const token = JSON.parse(`${localStorage.getItem("token")}`);
+    await fetch(Url, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
   });
 });

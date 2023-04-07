@@ -46,3 +46,28 @@ export const fetchWorks = () => apiFetch("GET", "/api/works");
 export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
 
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
+
+// async function getID() {
+//   const data2 = await fetchWorks();
+//   const ids = data2.map(({ id }) => id);
+//   return ids;
+// }
+
+// const deleteBtn = document.querySelectorAll("img");
+// const ids = await getID();
+
+// deleteBtn.forEach((button, index) => {
+//   button.addEventListener("click", async (event) => {
+//     let id = ids[index];
+//     const Url = `http://localhost:5678/api/works/${id}`;
+//     const token = JSON.parse(`${localStorage.getItem("token")}`);
+//     await fetch(Url, {
+//       method: "DELETE",
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//         "Content-Type": "application/json",
+//       },
+//     });
+//   });
+//   renderWorksModalAll();
+// });
