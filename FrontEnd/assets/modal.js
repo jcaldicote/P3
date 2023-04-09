@@ -1,5 +1,6 @@
 import { fetchWorks } from "./api.js";
 import { createAppend } from "./dom.js";
+import { deleteWorks } from "./api.js";
 
 const modalButtons = document.querySelector("[data-toggle = modal");
 const modalModifyButton = document.querySelector(".isAdminModal");
@@ -26,6 +27,11 @@ function renderWorkModal(work) {
   const iconElm2 = createAppend("i", divIconElm2);
   iconElm2.classList.add("fa-regular");
   iconElm2.classList.add("fa-trash-can");
+  iconElm2.addEventListener("click", function () {
+    deleteWorks(work.id);
+    modalBody.innerHTML = "";
+    renderWorksModalAll();
+  });
 
   const imgElm = createAppend("img", workElm);
   imgElm.src = work.imageUrl;
@@ -75,28 +81,17 @@ modalButtons.addEventListener("click", function (e) {
   });
 });
 
-// Test pour la suppression des travaux
+//Test pour la suppression des travaux
 
-async function getID() {
-  const data2 = await fetchWorks();
-  const ids = data2.map(({ id }) => id);
-  return ids;
-}
-
-const deleteBtn = document.querySelectorAll(".fa-regular");
-const ids = await getID();
-
-deleteBtn.forEach((button, index) => {
-  button.addEventListener("click", async (event) => {
-    let id = ids[index];
-    const Url = `http://localhost:5678/api/works/${id}`;
-    const token = JSON.parse(`${localStorage.getItem("token")}`);
-    await fetch(Url, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
-  });
-});
+// async function deleteWorks(id) {
+//   const Url = `http://localhost:5678/api/works/${id}`;
+//   const token = JSON.parse(`${localStorage.getItem("token")}`);
+//   await fetch(Url, {
+//     method: "DELETE",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   console.log("work deleted");
+// }
