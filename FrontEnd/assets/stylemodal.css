@@ -137,3 +137,14 @@ hr {
 .hideOnAddPicMode.hide {
   display: none;
 }
+
+.backIcon {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  display: none;
+}
+
+.backIcon.display {
+  display: block;
+}

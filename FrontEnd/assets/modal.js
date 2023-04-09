@@ -90,7 +90,12 @@ addPic.addEventListener("click", () => {
   for (let i of hideOnAddPicMode) {
     i.classList.add("hide");
   }
+  let appearArrowBack = document.querySelector(".backIcon");
+  appearArrowBack.classList.add("display");
+
   const divAddPicTxt = document.querySelector(".modal-header");
   const divAddPicTxtElt = createAppend("p", divAddPicTxt);
   divAddPicTxtElt.innerText = "Ajout Photo";
+
+  const formElt = createAppend("form", modalBody);
 });
