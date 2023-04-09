@@ -97,5 +97,32 @@ addPic.addEventListener("click", () => {
   const divAddPicTxtElt = createAppend("p", divAddPicTxt);
   divAddPicTxtElt.innerText = "Ajout Photo";
 
-  const formElt = createAppend("form", modalBody);
+  const formElt = createAppend("form", divAddPicTxt);
+  formElt.setAttribute("name", "addWork");
+  formElt.setAttribute("id", "addWork");
+  formElt.setAttribute("method", "post");
+  formElt.setAttribute("enctype", "multipart/form-data");
+
+  const importPicture = createAppend("div", formElt);
+  importPicture.setAttribute("class", "importPicture");
+  const importPicturImg = createAppend("img", importPicture);
+  importPicturImg.setAttribute("src", "./assets/images/imageload.svg");
+
+  const formAddImg = createAppend("div", importPicture);
+  formAddImg.setAttribute("class", "formAddImg");
+
+  const labelAddWork = createAppend("label", formAddImg);
+  labelAddWork.setAttribute("class", "labelAddWork");
+
+  const inputImg = createAppend("input", labelAddWork);
+  inputImg.setAttribute("type", "file");
+  inputImg.setAttribute("name", "image");
+  inputImg.setAttribute("id", "file");
+  inputImg.setAttribute("accept", ".png, .jpeg, .jpg");
+  inputImg.setAttribute("size", "4000000");
+  inputImg.setAttribute("class", "inputFormAddImg");
+  labelAddWork.innerText = " + Ajouter photo";
+
+  const spanAddPicture = createAppend("span", importPicture);
+  spanAddPicture.innerHTML = "jpg, png : 4mo max";
 });
