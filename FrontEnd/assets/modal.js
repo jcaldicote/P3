@@ -27,6 +27,7 @@ function renderWorkModal(work) {
   const iconElm2 = createAppend("i", divIconElm2);
   iconElm2.classList.add("fa-regular");
   iconElm2.classList.add("fa-trash-can");
+  //Test pour la suppression des travaux
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
     modalBody.innerHTML = "";
@@ -81,17 +82,15 @@ modalButtons.addEventListener("click", function (e) {
   });
 });
 
-//Test pour la suppression des travaux
+// Création de l'interface Ajout photo
 
-// async function deleteWorks(id) {
-//   const Url = `http://localhost:5678/api/works/${id}`;
-//   const token = JSON.parse(`${localStorage.getItem("token")}`);
-//   await fetch(Url, {
-//     method: "DELETE",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   console.log("work deleted");
-// }
+const addPic = document.querySelector(".addPic");
+addPic.addEventListener("click", () => {
+  const hideOnAddPicMode = document.querySelectorAll(".hideOnAddPicMode");
+  for (let i of hideOnAddPicMode) {
+    i.classList.add("hide");
+  }
+  const divAddPicTxt = document.querySelector(".modal-header");
+  const divAddPicTxtElt = createAppend("p", divAddPicTxt);
+  divAddPicTxtElt.innerText = "Ajout Photo";
+});

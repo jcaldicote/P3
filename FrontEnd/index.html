@@ -108,20 +108,24 @@
         <ul>
           <li>Mentions Légales</li>
         </ul>
+        <div>
+          <i class="fa-sharp fa-solid fa-image"></i>
+        </div>
       </nav>
     </footer>
     <div class="modal" id="modal" role="dialog">
       <div class="modal-content">
         <div class="modal-close" data-dismiss="dialog">X</div>
         <div class="modal-header">
-          <p>Galerie photo</p>
+          <p class="hideOnAddPicMode">Galerie photo</p>
         </div>
-        <div class="modal-body"></div>
+        <div class="modal-body hideOnAddPicMode"></div>
+        <hr class="hideOnAddPicMode" />
         <div class="modal-footer">
-          <div class="addPicModal">
+          <div class="addPicModal hideOnAddPicMode">
             <a href="#" role="button" class="addPic">Ajouter une photo</a>
           </div>
-          <div class="delPicModal">
+          <div class="delPicModal hideOnAddPicMode">
             <a href="#" class="delPic">Supprimer la galerie</a>
           </div>
         </div>

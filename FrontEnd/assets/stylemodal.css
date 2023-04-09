@@ -26,7 +26,7 @@
   max-width: 630px;
   max-height: 730px;
   margin: auto;
-  /* flex: 1; */
+
   position: relative;
   border-radius: 10px;
 }
@@ -52,13 +52,15 @@
   margin: 0 105px;
   overflow-y: auto;
   aspect-ratio: 422/436;
-  border-bottom: 1px solid #b3b3b3;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-column-gap: 6px;
   grid-row-gap: 12px;
 }
 
+hr {
+  max-width: 422px;
+}
 .modal-footer {
   text-align: center;
 }
@@ -130,4 +132,8 @@
 
 .fa-regular {
   color: white;
+}
+
+.hideOnAddPicMode.hide {
+  display: none;
 }
