@@ -148,3 +148,7 @@ hr {
 .backIcon.display {
   display: block;
 }
+
+form {
+  border: solid 2px red;
+}
