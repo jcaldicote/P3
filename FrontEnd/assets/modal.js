@@ -113,7 +113,7 @@ addPic.addEventListener("click", () => {
 
   const labelAddWork = createAppend("label", formAddImg);
   labelAddWork.setAttribute("class", "labelAddWork");
-  labelAddWork.setAttribute("for", "image");
+  labelAddWork.setAttribute("for", "file");
   labelAddWork.textContent = " + Ajouter photo";
 
   const inputImg = createAppend("input", formAddImg);
@@ -124,6 +124,7 @@ addPic.addEventListener("click", () => {
   inputImg.setAttribute("size", "4000000");
   inputImg.setAttribute("class", "inputFormAddImg");
   inputImg.setAttribute("required", "");
+  inputImg.setAttribute("hidden", "");
 
   const spanAddPicture = createAppend("span", importPicture);
   spanAddPicture.textContent = "jpg, png : 4mo max";
@@ -168,54 +169,60 @@ addPic.addEventListener("click", () => {
   const confirmBtn = createAppend("button", formElt);
   confirmBtn.setAttribute("class", "confirm-Btn");
   confirmBtn.textContent = "Valider";
+  uploadImg();
+  addWork();
 });
 
-///////////// Mécanisme pour uploader une image non fonctionnel -test de code
+/////////// Mécanisme pour uploader une image non fonctionnel
+function uploadImg() {
+  const image_input = document.querySelector(".inputFormAddImg");
+  let uploaded_image = "";
 
-// const image_input = document.querySelector(".inputFormAddImg");
-// let uploaded_image = "";
-
-// image_input.addEventListener("change", function () {
-//   const reader = new FileReader();
-//   reader.addEventListener("load", () => {
-//     uploaded_image = reader.result;
-//     document.querySelector(
-//       ".importPicture"
-//     ).style.backgroundImage = `url(${uploaded_image})`;
-//   });
-//   reader.readAsDataURL(this.files[0]);
-// });
+  image_input.addEventListener("change", function () {
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      uploaded_image = reader.result;
+      document.querySelector(
+        ".importPicture"
+      ).style.backgroundImage = `url(${uploaded_image})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+}
 
 ///////  Mécanisme pour envoyer un nouveau projet -test code
 
-// const submitBtn = document.querySelector(".confirm-Btn");
+async function addWork() {
+  const submitBtn = document.querySelector(".confirm-Btn");
 
-// submitBtn.addEventListener("submit", async (e) => {
-//   const apiUrl = "http://localhost:5678/api/works";
+  submitBtn.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const apiUrl = "http://localhost:5678/api/works";
 
-//   const formData = new FormData();
+    const formData = new FormData();
 
-//   const titleInput = document.querySelector('input[name="title"]');
-//   const title = titleInput.value;
+    const titleInput = document.querySelector('input[name="title"]');
+    const title = titleInput.value;
 
-//   const fileInput = document.querySelector('input[name="image"]');
-//   const file = fileInput.files[0];
+    const fileInput = document.querySelector('input[name="image"]');
+    const file = fileInput.files[0];
 
-//   const categorySelect = document.querySelector('select[id="category"]');
-//   const category = categorySelect.value;
+    const categorySelect = document.querySelector('select[id="category"]');
+    const category = categorySelect.value;
 
-//   formData.append("title", title);
-//   formData.append("image", file);
-//   formData.append("category", category);
+    formData.append("title", title);
+    formData.append("image", file);
+    formData.append("category", category);
 
-//   console.log(formData);
+    console.log(formData);
 
-//   const token = JSON.parse(`${localStorage.getItem("token")}`);
-//   await fetch(apiUrl, {
-//     method: "POST",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//     body: formData,
-//   });
-// });
+    const token = JSON.parse(`${localStorage.getItem("token")}`);
+    await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
+  });
+}
