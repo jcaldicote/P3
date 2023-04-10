@@ -149,6 +149,6 @@ hr {
   display: block;
 }
 
-form {
+#addWork {
   border: solid 2px red;
 }

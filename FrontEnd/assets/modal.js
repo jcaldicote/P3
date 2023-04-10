@@ -113,16 +113,58 @@ addPic.addEventListener("click", () => {
 
   const labelAddWork = createAppend("label", formAddImg);
   labelAddWork.setAttribute("class", "labelAddWork");
+  labelAddWork.setAttribute("for", "image");
+  labelAddWork.textContent = " + Ajouter photo";
 
-  const inputImg = createAppend("input", labelAddWork);
+  const inputImg = createAppend("input", formAddImg);
   inputImg.setAttribute("type", "file");
   inputImg.setAttribute("name", "image");
   inputImg.setAttribute("id", "file");
   inputImg.setAttribute("accept", ".png, .jpeg, .jpg");
   inputImg.setAttribute("size", "4000000");
   inputImg.setAttribute("class", "inputFormAddImg");
-  labelAddWork.innerText = " + Ajouter photo";
+  inputImg.setAttribute("required", "");
 
   const spanAddPicture = createAppend("span", importPicture);
-  spanAddPicture.innerHTML = "jpg, png : 4mo max";
+  spanAddPicture.textContent = "jpg, png : 4mo max";
+
+  const formLabel = createAppend("label", formElt);
+  formLabel.setAttribute("class", "formLabel");
+  formLabel.setAttribute("for", "title");
+  formLabel.textContent = "Titre";
+
+  const formInput = createAppend("input", formElt);
+  formInput.setAttribute("class", "formInput");
+  formInput.setAttribute("type", "text");
+  formInput.setAttribute("name", "title");
+  formInput.setAttribute("id", "title");
+  formInput.setAttribute("required", "");
+
+  const formLabelCat = createAppend("label", formElt);
+  formLabelCat.setAttribute("class", "formLabel");
+  formLabelCat.setAttribute("for", "categoryselect");
+  formLabelCat.textContent = "Catégorie";
+
+  const formInputSelect = createAppend("select", formElt);
+  formInputSelect.setAttribute("class", "formInput");
+  formInputSelect.setAttribute("name", "category");
+  formInputSelect.setAttribute("id", "category");
+
+  const optionSelect = createAppend("option", formInputSelect);
+  optionSelect.setAttribute("value", "blank-value");
+  optionSelect.textContent = "";
+  const optionSelect1 = createAppend("option", formInputSelect);
+  optionSelect1.setAttribute("value", "1");
+  optionSelect1.textContent = "Objets";
+  const optionSelect2 = createAppend("option", formInputSelect);
+  optionSelect2.setAttribute("value", "2");
+  optionSelect2.textContent = "Appartements";
+  const optionSelect3 = createAppend("option", formInputSelect);
+  optionSelect3.setAttribute("value", "3");
+  optionSelect3.textContent = "Hotels & restaurants";
+
+  const hr = createAppend("hr", formElt);
+  const confirmBtn = createAppend("button", formElt);
+  confirmBtn.setAttribute("class", "confirm-Btn");
+  confirmBtn.textContent = "Valider";
 });
