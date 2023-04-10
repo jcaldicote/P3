@@ -149,6 +149,7 @@ addPic.addEventListener("click", () => {
   formInputSelect.setAttribute("class", "formInput");
   formInputSelect.setAttribute("name", "category");
   formInputSelect.setAttribute("id", "category");
+  formInputSelect.setAttribute("required", "");
 
   const optionSelect = createAppend("option", formInputSelect);
   optionSelect.setAttribute("value", "blank-value");
@@ -168,3 +169,53 @@ addPic.addEventListener("click", () => {
   confirmBtn.setAttribute("class", "confirm-Btn");
   confirmBtn.textContent = "Valider";
 });
+
+///////////// Mécanisme pour uploader une image non fonctionnel -test de code
+
+// const image_input = document.querySelector(".inputFormAddImg");
+// let uploaded_image = "";
+
+// image_input.addEventListener("change", function () {
+//   const reader = new FileReader();
+//   reader.addEventListener("load", () => {
+//     uploaded_image = reader.result;
+//     document.querySelector(
+//       ".importPicture"
+//     ).style.backgroundImage = `url(${uploaded_image})`;
+//   });
+//   reader.readAsDataURL(this.files[0]);
+// });
+
+///////  Mécanisme pour envoyer un nouveau projet -test code
+
+// const submitBtn = document.querySelector(".confirm-Btn");
+
+// submitBtn.addEventListener("submit", async (e) => {
+//   const apiUrl = "http://localhost:5678/api/works";
+
+//   const formData = new FormData();
+
+//   const titleInput = document.querySelector('input[name="title"]');
+//   const title = titleInput.value;
+
+//   const fileInput = document.querySelector('input[name="image"]');
+//   const file = fileInput.files[0];
+
+//   const categorySelect = document.querySelector('select[id="category"]');
+//   const category = categorySelect.value;
+
+//   formData.append("title", title);
+//   formData.append("image", file);
+//   formData.append("category", category);
+
+//   console.log(formData);
+
+//   const token = JSON.parse(`${localStorage.getItem("token")}`);
+//   await fetch(apiUrl, {
+//     method: "POST",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//     body: formData,
+//   });
+// });
