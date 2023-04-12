@@ -1,7 +1,7 @@
 import { fetchWorks } from "./api.js";
 import { fetchFilterBar } from "./api.js";
 import { check } from "./auth.js";
-import { renderWorks, renderWorksBar } from "./galery.js";
+import { renderWorks, renderWorksBar, categorieForAddWorks } from "./galery.js";
 
 const isAdmin = document.querySelectorAll(".isAdmin");
 const isAdminHide = document.querySelectorAll(".isAdminHide");
@@ -33,3 +33,13 @@ logOut.addEventListener("click", (e) => {
   localStorage.clear();
   location.pathname = "/";
 });
+
+//pour le rendu des catégorie dans la section pour ajouter des travaux
+
+async function categorieForAddWorksRender() {
+  const category = await fetchFilterBar();
+  categorieForAddWorks(category);
+  console.log(category);
+}
+
+categorieForAddWorksRender();

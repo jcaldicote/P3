@@ -67,7 +67,7 @@ modalButtons.addEventListener("click", function (e) {
   modalModifyButton.style.display = "block";
 
   const formAddWorks = document.querySelector(".formAddWorks");
-  // formAddWorks.classList.add("hide");
+  formAddWorks.classList.add("hide");
 
   //pour fermer la modale
 

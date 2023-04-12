@@ -2,6 +2,7 @@ import { createAppend } from "./dom.js";
 
 export const gallery = document.querySelector(".gallery");
 export const filterBar = document.querySelector(".filterBar");
+const categorieElts = document.querySelector("#category");
 
 //Affichage de la galerie par défaut
 export function renderWork(work) {
@@ -47,4 +48,17 @@ export function renderWorksBar(workBars, works) {
   for (const item of workBars) {
     renderWorkBar(item, works);
   }
+}
+
+//pour le rendu des catégorie dans la section pour ajouter des travaux
+
+export function categorieForAddWork(category) {
+  const categoryElm = createAppend("option", categorieElts);
+  categoryElm.setAttribute("value", `${category.id}`);
+  categoryElm.textContent = `${category.name}`;
+}
+
+export function categorieForAddWorks(categorys) {
+  for (const work of categorys) categorieForAddWork(work);
+  console.log(categorys);
 }
