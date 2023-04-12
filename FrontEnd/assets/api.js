@@ -44,18 +44,18 @@ export async function apiFetch(method, url, body, options = {}) {
 export const fetchWorks = () => apiFetch("GET", "/api/works");
 export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
-export const deleteWorks1 = (id) => apiFetch("DELETE", `/api/works/${id}`);
+export const deleteWorks = (id) => apiFetch("DELETE", `/api/works/${id}`);
 
-export async function deleteWorks2(id) {
-  const url = `http://localhost:5678/api/works/${id}`;
-  const token = JSON.parse(localStorage.getItem("token"));
-  await fetch(url, {
-    method: "DELETE",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-  });
-}
+// export async function deleteWorks2(id) {
+//   const url = `http://localhost:5678/api/works/${id}`;
+//   const token = JSON.parse(localStorage.getItem("token"));
+//   await fetch(url, {
+//     method: "DELETE",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-Type": "application/json",
+//     },
+//   });
+// }
 
-export const deleteWorks = deleteWorks1;
+// export const deleteWorks = deleteWorks1;

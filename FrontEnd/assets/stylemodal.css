@@ -152,3 +152,14 @@ hr {
 #addWork {
   border: solid 2px red;
 }
+
+.formAddWorks {
+  background-color: #d65353;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formAddWorks.hide {
+  display: none;
+}

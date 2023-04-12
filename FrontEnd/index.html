@@ -117,12 +117,54 @@
       <div class="modal-content">
         <div class="modal-close" data-dismiss="dialog">X</div>
         <div class="backIcon">
-          <a href=""><img src="./assets/images/back.svg" alt="" /></a>
+          <a href="#"><img src="./assets/images/back.svg" alt="" /></a>
         </div>
         <div class="modal-header">
           <p class="hideOnAddPicMode">Galerie photo</p>
+          <p>Ajout Photo</p>
         </div>
         <div class="modal-body hideOnAddPicMode"></div>
+        <form
+          class="formAddWorks"
+          name="addWork"
+          id="addWork"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="importPicture">
+            <img src="./assets/images/imageload.svg" />
+            <div class="formAddImg">
+              <label class="labelAddWork" for="file"> + Ajouter photo</label
+              ><input
+                type="file"
+                name="image"
+                id="file"
+                accept=".png, .jpeg, .jpg"
+                size="4000000"
+                class="inputFormAddImg"
+                required=""
+                hidden=""
+              />
+            </div>
+            <span>jpg, png : 4mo max</span>
+          </div>
+          <label class="formLabel" for="title">Titre</label
+          ><input
+            class="formInput"
+            type="text"
+            name="title"
+            id="title"
+            required=""
+          /><label class="formLabel" for="categoryselect">Catégorie</label
+          ><select class="formInput" name="category" id="category" required="">
+            <option value="blank-value"></option>
+            <!-- <option value="1">Objets</option>
+            <option value="2">Appartements</option>
+            <option value="3">Hotels &amp; restaurants</option> -->
+          </select>
+          <hr />
+          <button class="confirm-Btn">Valider</button>
+        </form>
         <hr class="hideOnAddPicMode" />
         <div class="modal-footer">
           <div class="addPicModal hideOnAddPicMode">

@@ -27,7 +27,9 @@ function renderWorkModal(work) {
   const iconElm2 = createAppend("i", divIconElm2);
   iconElm2.classList.add("fa-regular");
   iconElm2.classList.add("fa-trash-can");
-  //Test pour la suppression des travaux
+
+  //Pour la suppressin des travaux
+
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
     workElm.remove();
@@ -57,12 +59,15 @@ renderWorksModalAll();
 modalButtons.addEventListener("click", function (e) {
   e.preventDefault();
 
-  let target = this.dataset.target;
+  const target = this.dataset.target;
 
-  let modal = document.querySelector(target);
+  const modal = document.querySelector(target);
 
   modal.classList.add("show");
   modalModifyButton.style.display = "block";
+
+  const formAddWorks = document.querySelector(".formAddWorks");
+  // formAddWorks.classList.add("hide");
 
   //pour fermer la modale
 
@@ -90,87 +95,23 @@ addPic.addEventListener("click", () => {
   for (let i of hideOnAddPicMode) {
     i.classList.add("hide");
   }
-  let appearArrowBack = document.querySelector(".backIcon");
+  const appearArrowBack = document.querySelector(".backIcon");
   appearArrowBack.classList.add("display");
+  const formAddWorks = document.querySelector(".formAddWorks");
+  formAddWorks.classList.remove("hide");
 
-  const divAddPicTxt = document.querySelector(".modal-header");
-  const divAddPicTxtElt = createAppend("p", divAddPicTxt);
-  divAddPicTxtElt.innerText = "Ajout Photo";
+  // pour revenir sur la modale delete Works via fleche back
+  appearArrowBack.addEventListener("click", () => {
+    for (let i of hideOnAddPicMode) {
+      i.classList.remove("hide");
+    }
+    appearArrowBack.classList.remove("display");
+    formAddWorks.classList.add("hide");
+    let picadd = document.querySelector(".importPicture");
+  });
 
-  const formElt = createAppend("form", divAddPicTxt);
-  formElt.setAttribute("name", "addWork");
-  formElt.setAttribute("id", "addWork");
-  formElt.setAttribute("method", "post");
-  formElt.setAttribute("enctype", "multipart/form-data");
-
-  const importPicture = createAppend("div", formElt);
-  importPicture.setAttribute("class", "importPicture");
-  const importPicturImg = createAppend("img", importPicture);
-  importPicturImg.setAttribute("src", "./assets/images/imageload.svg");
-
-  const formAddImg = createAppend("div", importPicture);
-  formAddImg.setAttribute("class", "formAddImg");
-
-  const labelAddWork = createAppend("label", formAddImg);
-  labelAddWork.setAttribute("class", "labelAddWork");
-  labelAddWork.setAttribute("for", "file");
-  labelAddWork.textContent = " + Ajouter photo";
-
-  const inputImg = createAppend("input", formAddImg);
-  inputImg.setAttribute("type", "file");
-  inputImg.setAttribute("name", "image");
-  inputImg.setAttribute("id", "file");
-  inputImg.setAttribute("accept", ".png, .jpeg, .jpg");
-  inputImg.setAttribute("size", "4000000");
-  inputImg.setAttribute("class", "inputFormAddImg");
-  inputImg.setAttribute("required", "");
-  inputImg.setAttribute("hidden", "");
-
-  const spanAddPicture = createAppend("span", importPicture);
-  spanAddPicture.textContent = "jpg, png : 4mo max";
-
-  const formLabel = createAppend("label", formElt);
-  formLabel.setAttribute("class", "formLabel");
-  formLabel.setAttribute("for", "title");
-  formLabel.textContent = "Titre";
-
-  const formInput = createAppend("input", formElt);
-  formInput.setAttribute("class", "formInput");
-  formInput.setAttribute("type", "text");
-  formInput.setAttribute("name", "title");
-  formInput.setAttribute("id", "title");
-  formInput.setAttribute("required", "");
-
-  const formLabelCat = createAppend("label", formElt);
-  formLabelCat.setAttribute("class", "formLabel");
-  formLabelCat.setAttribute("for", "categoryselect");
-  formLabelCat.textContent = "Catégorie";
-
-  const formInputSelect = createAppend("select", formElt);
-  formInputSelect.setAttribute("class", "formInput");
-  formInputSelect.setAttribute("name", "category");
-  formInputSelect.setAttribute("id", "category");
-  formInputSelect.setAttribute("required", "");
-
-  const optionSelect = createAppend("option", formInputSelect);
-  optionSelect.setAttribute("value", "blank-value");
-  optionSelect.textContent = "";
-  const optionSelect1 = createAppend("option", formInputSelect);
-  optionSelect1.setAttribute("value", "1");
-  optionSelect1.textContent = "Objets";
-  const optionSelect2 = createAppend("option", formInputSelect);
-  optionSelect2.setAttribute("value", "2");
-  optionSelect2.textContent = "Appartements";
-  const optionSelect3 = createAppend("option", formInputSelect);
-  optionSelect3.setAttribute("value", "3");
-  optionSelect3.textContent = "Hotels & restaurants";
-
-  const hr = createAppend("hr", formElt);
-  const confirmBtn = createAppend("button", formElt);
-  confirmBtn.setAttribute("class", "confirm-Btn");
-  confirmBtn.textContent = "Valider";
   uploadImg();
-  addWork();
+  // addWork();
 });
 
 /////////// Mécanisme pour uploader une image non fonctionnel
