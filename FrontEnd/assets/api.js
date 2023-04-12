@@ -11,7 +11,7 @@ export async function apiFetch(method, url, body, options = {}) {
   const headers = { ...options.headers };
   const token = check();
   if (token) {
-    headers.Autorization = `Bearer ${token}`;
+    headers.Authorization = `Bearer ${token}`;
   }
   if (body instanceof FormData) {
   } else if (typeof body === "object") {
@@ -42,15 +42,14 @@ export async function apiFetch(method, url, body, options = {}) {
 }
 
 export const fetchWorks = () => apiFetch("GET", "/api/works");
-
 export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
-
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
+export const deleteWorks1 = (id) => apiFetch("DELETE", `/api/works/${id}`);
 
-export async function deleteWorks(id) {
-  const Url = `http://localhost:5678/api/works/${id}`;
-  const token = JSON.parse(`${localStorage.getItem("token")}`);
-  await fetch(Url, {
+export async function deleteWorks2(id) {
+  const url = `http://localhost:5678/api/works/${id}`;
+  const token = JSON.parse(localStorage.getItem("token"));
+  await fetch(url, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -58,3 +57,5 @@ export async function deleteWorks(id) {
     },
   });
 }
+
+export const deleteWorks = deleteWorks1;

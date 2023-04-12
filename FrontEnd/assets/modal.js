@@ -30,8 +30,8 @@ function renderWorkModal(work) {
   //Test pour la suppression des travaux
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
-    modalBody.innerHTML = "";
-    renderWorksModalAll();
+    workElm.remove();
+    document.querySelector(`.gallery>[data-id="${work.id}"]`).remove();
   });
 
   const imgElm = createAppend("img", workElm);
