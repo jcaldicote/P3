@@ -78,6 +78,9 @@ hr {
   color: white;
   border-radius: 60px;
 }
+.addPic:hover {
+  background-color: #0e2f28;
+}
 
 .delPicModal {
   margin-bottom: 48px;
@@ -149,17 +152,51 @@ hr {
   display: block;
 }
 
-#addWork {
+/* #addWork {
   border: solid 2px red;
-}
+} */
 
 .formAddWorks {
-  background-color: #d65353;
+  background-color: pink;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* border: solid 2px red; */
+  max-width: 420px;
+  min-height: 420px;
+  margin: auto;
 }
 
 .formAddWorks.hide {
   display: none;
+}
+
+.importPicture {
+  background-color: #e8f1f7;
+  width: 420px;
+  min-height: 169px;
+}
+
+.imgLoad {
+  margin: 28px 182px 21px 180px;
+}
+
+.labelAddWork {
+  color: #306685;
+  font-size: 14px;
+  padding: 10px 33px;
+  display: inline-block;
+  margin: 0 124px 7px 123px;
+  background-color: #cbd6dc;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.labelAddWork:hover {
+  font-weight: bold;
+}
+
+.format {
+  font-size: 10px;
+  display: inline-block;
+  margin: 0 163px 19px 163px;
 }
