@@ -157,7 +157,6 @@ hr {
 } */
 
 .formAddWorks {
-  background-color: pink;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -171,10 +170,15 @@ hr {
   display: none;
 }
 
+.addPhoto.hide {
+  display: none;
+}
 .importPicture {
   background-color: #e8f1f7;
   width: 420px;
   min-height: 169px;
+  border-radius: 3px;
+  margin-top: -20px;
 }
 
 .imgLoad {
@@ -199,4 +203,46 @@ hr {
   font-size: 10px;
   display: inline-block;
   margin: 0 163px 19px 163px;
+}
+
+.formLabel.title {
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.formLabel.category {
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.formInput {
+  height: 50px;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  width: 420px;
+}
+
+.hrAddWorks {
+  width: 420px;
+  margin-top: 37px;
+}
+
+.confirm-Btn {
+  color: white;
+  font-size: 14px;
+  padding: 10px 110px;
+  margin: 32px 0px 55px 0px;
+  background-color: #a7a7a7;
+  border-radius: 60px;
+  cursor: pointer;
+  border: none;
+  font-family: "Syne";
+}
+.confirm-Btn:hover {
+  background-color: #1d6154;
 }

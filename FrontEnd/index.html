@@ -121,7 +121,7 @@
         </div>
         <div class="modal-header">
           <p class="hideOnAddPicMode">Galerie photo</p>
-          <p>Ajout photo</p>
+          <p class="addPhoto">Ajout photo</p>
         </div>
         <div class="modal-body hideOnAddPicMode"></div>
         <form
@@ -148,21 +148,19 @@
             </div>
             <span class="format">jpg, png : 4mo max</span>
           </div>
-          <label class="formLabel" for="title">Titre</label
+          <label class="formLabel title" for="title">Titre</label
           ><input
             class="formInput"
             type="text"
             name="title"
             id="title"
             required=""
-          /><label class="formLabel" for="categoryselect">Catégorie</label
+          /><label class="formLabel category" for="categoryselect"
+            >Catégorie</label
           ><select class="formInput" name="category" id="category" required="">
             <option value="blank-value"></option>
-            <!-- <option value="1">Objets</option>
-            <option value="2">Appartements</option>
-            <option value="3">Hotels &amp; restaurants</option> -->
           </select>
-          <hr />
+          <hr class="hrAddWorks" />
           <button class="confirm-Btn">Valider</button>
         </form>
         <hr class="hideOnAddPicMode" />

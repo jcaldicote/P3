@@ -69,6 +69,9 @@ modalButtons.addEventListener("click", function (e) {
   const formAddWorks = document.querySelector(".formAddWorks");
   formAddWorks.classList.add("hide");
 
+  const addPhoto = document.querySelector(".addPhoto");
+  addPhoto.classList.add("hide");
+
   //pour fermer la modale
 
   modalClose.addEventListener("click", () => {
@@ -99,6 +102,8 @@ addPic.addEventListener("click", () => {
   appearArrowBack.classList.add("display");
   const formAddWorks = document.querySelector(".formAddWorks");
   formAddWorks.classList.remove("hide");
+  const addPhoto = document.querySelector(".addPhoto");
+  addPhoto.classList.remove("hide");
 
   // pour revenir sur la modale delete Works via fleche back
   appearArrowBack.addEventListener("click", () => {
@@ -107,6 +112,7 @@ addPic.addEventListener("click", () => {
     }
     appearArrowBack.classList.remove("display");
     formAddWorks.classList.add("hide");
+    addPhoto.classList.add("hide");
     let picadd = document.querySelector(".importPicture");
   });
 
