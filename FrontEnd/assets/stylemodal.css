@@ -246,3 +246,14 @@ hr {
 .confirm-Btn:hover {
   background-color: #1d6154;
 }
+
+.hideOnDisplayAddWorks.hide {
+  display: none;
+}
+
+.addNewWorkImg {
+  max-width: 129px;
+  min-height: 169px;
+  background-size: cover;
+  margin-left: 146px;
+}

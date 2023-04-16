@@ -60,5 +60,4 @@ export function categorieForAddWork(category) {
 
 export function categorieForAddWorks(categorys) {
   for (const work of categorys) categorieForAddWork(work);
-  console.log(categorys);
 }

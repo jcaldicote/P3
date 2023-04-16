@@ -132,8 +132,11 @@
           enctype="multipart/form-data"
         >
           <div class="importPicture">
-            <img src="./assets/images/imageload.svg" class="imgLoad" />
-            <div class="formAddImg">
+            <img
+              src="./assets/images/imageload.svg"
+              class="imgLoad hideOnDisplayAddWorks"
+            />
+            <div class="formAddImg hideOnDisplayAddWorks">
               <label class="labelAddWork" for="file"> + Ajouter photo</label
               ><input
                 type="file"
@@ -142,11 +145,11 @@
                 accept=".png, .jpeg, .jpg"
                 size="4000000"
                 class="inputFormAddImg"
-                required=""
+                required
                 hidden=""
               />
             </div>
-            <span class="format">jpg, png : 4mo max</span>
+            <span class="format hideOnDisplayAddWorks">jpg, png : 4mo max</span>
           </div>
           <label class="formLabel title" for="title">Titre</label
           ><input
@@ -154,10 +157,10 @@
             type="text"
             name="title"
             id="title"
-            required=""
+            required
           /><label class="formLabel category" for="categoryselect"
             >Catégorie</label
-          ><select class="formInput" name="category" id="category" required="">
+          ><select class="formInput" name="category" id="category" required>
             <option value="blank-value"></option>
           </select>
           <hr class="hrAddWorks" />

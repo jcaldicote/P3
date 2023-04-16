@@ -39,7 +39,6 @@ logOut.addEventListener("click", (e) => {
 async function categorieForAddWorksRender() {
   const category = await fetchFilterBar();
   categorieForAddWorks(category);
-  console.log(category);
 }
 
 categorieForAddWorksRender();

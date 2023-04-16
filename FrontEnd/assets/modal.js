@@ -129,8 +129,17 @@ function uploadImg() {
     const reader = new FileReader();
     reader.addEventListener("load", () => {
       uploaded_image = reader.result;
+      const hideOnDisplayAddWorks = document.querySelectorAll(
+        ".hideOnDisplayAddWorks"
+      );
+      for (let i of hideOnDisplayAddWorks) {
+        i.classList.add("hide");
+      }
+      const importPicture = document.querySelector(".importPicture");
+      const addNewWorkImg = createAppend("div", importPicture);
+      addNewWorkImg.setAttribute("class", "addNewWorkImg");
       document.querySelector(
-        ".importPicture"
+        ".addNewWorkImg"
       ).style.backgroundImage = `url(${uploaded_image})`;
     });
     reader.readAsDataURL(this.files[0]);
