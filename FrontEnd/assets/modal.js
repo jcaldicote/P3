@@ -164,12 +164,12 @@ async function addNewWorks() {
 
   submitBtn.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const body = new FormData();
-    body.append("title", title);
-    body.append("image", file);
-    body.append("category", category);
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("image", file);
+    formData.append("category", category);
 
-    const res = await addWorks(body);
+    const res = await addWorks(formData);
   });
 }
 
