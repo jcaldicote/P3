@@ -1,6 +1,7 @@
 import { fetchWorks } from "./api.js";
 import { createAppend } from "./dom.js";
 import { deleteWorks } from "./api.js";
+import { addWorks } from "./api.js";
 
 const modalButtons = document.querySelector("[data-toggle = modal");
 const modalModifyButton = document.querySelector(".isAdminModal");
@@ -106,6 +107,8 @@ addPic.addEventListener("click", () => {
   addPhoto.classList.remove("hide");
 
   // pour revenir sur la modale delete Works via fleche back
+
+  let picadd = document.querySelector(".addNewWorkImg");
   appearArrowBack.addEventListener("click", () => {
     for (let i of hideOnAddPicMode) {
       i.classList.remove("hide");
@@ -113,12 +116,11 @@ addPic.addEventListener("click", () => {
     appearArrowBack.classList.remove("display");
     formAddWorks.classList.add("hide");
     addPhoto.classList.add("hide");
-    let picadd = document.querySelector(".importPicture");
+    document.getElementById("addWork").reset();
   });
-
-  uploadImg();
-  // addWork();
 });
+
+uploadImg();
 
 /////////// Mécanisme pour uploader une image non fonctionnel
 function uploadImg() {
@@ -148,37 +150,54 @@ function uploadImg() {
 
 ///////  Mécanisme pour envoyer un nouveau projet -test code
 
-async function addWork() {
-  const submitBtn = document.querySelector(".confirm-Btn");
+async function addNewWorks() {
+  const submitBtn = document.querySelector(".formAddWorks");
+
+  const titleInput = document.getElementById("title");
+  const title = titleInput.value;
+
+  const fileInput = document.getElementById("file");
+  const file = fileInput.files[0];
+
+  const categorySelect = document.getElementById("category");
+  const category = categorySelect.value;
 
   submitBtn.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const apiUrl = "http://localhost:5678/api/works";
+    const body = new FormData();
+    body.append("title", title);
+    body.append("image", file);
+    body.append("category", category);
 
-    const formData = new FormData();
-
-    const titleInput = document.querySelector('input[name="title"]');
-    const title = titleInput.value;
-
-    const fileInput = document.querySelector('input[name="image"]');
-    const file = fileInput.files[0];
-
-    const categorySelect = document.querySelector('select[id="category"]');
-    const category = categorySelect.value;
-
-    formData.append("title", title);
-    formData.append("image", file);
-    formData.append("category", category);
-
-    console.log(formData);
-
-    const token = JSON.parse(`${localStorage.getItem("token")}`);
-    await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    });
+    const res = await addWorks(body);
   });
 }
+
+addNewWorks();
+// const apiUrl = "http://localhost:5678/api/works";
+
+// const formData = new FormData();
+
+// const titleInput = document.querySelector('input[name="title"]');
+// const title = titleInput.value;
+
+// const fileInput = document.querySelector('input[name="image"]');
+// const file = fileInput.files[0];
+
+// const categorySelect = document.querySelector('select[id="category"]');
+// const category = categorySelect.value;
+
+// formData.append("title", title);
+// formData.append("image", file);
+// formData.append("category", category);
+
+// console.log(formData);
+
+// const token = JSON.parse(`${localStorage.getItem("token")}`);
+// await fetch(apiUrl, {
+//   method: "POST",
+//   headers: {
+//     Authorization: `Bearer ${token}`,
+//   },
+//   body: formData,
+// });

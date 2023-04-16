@@ -145,26 +145,21 @@
                 accept=".png, .jpeg, .jpg"
                 size="4000000"
                 class="inputFormAddImg"
-                required
                 hidden=""
               />
             </div>
             <span class="format hideOnDisplayAddWorks">jpg, png : 4mo max</span>
           </div>
           <label class="formLabel title" for="title">Titre</label
-          ><input
-            class="formInput"
-            type="text"
-            name="title"
-            id="title"
-            required
-          /><label class="formLabel category" for="categoryselect"
+          ><input class="formInput" type="text" name="title" id="title" /><label
+            class="formLabel category"
+            for="categoryselect"
             >Catégorie</label
-          ><select class="formInput" name="category" id="category" required>
+          ><select class="formInput" name="category" id="category">
             <option value="blank-value"></option>
           </select>
           <hr class="hrAddWorks" />
-          <button class="confirm-Btn">Valider</button>
+          <button class="confirm-Btn" type="submit">Valider</button>
         </form>
         <hr class="hideOnAddPicMode" />
         <div class="modal-footer">
