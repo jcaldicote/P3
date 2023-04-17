@@ -123,6 +123,7 @@ addPic.addEventListener("click", () => {
 uploadImg();
 
 /////////// Mécanisme pour uploader une image non fonctionnel
+
 function uploadImg() {
   const image_input = document.querySelector(".inputFormAddImg");
   let uploaded_image = "";
@@ -153,24 +154,24 @@ function uploadImg() {
 async function addNewWorks() {
   const form = document.querySelector(".formAddWorks");
 
-  // const titleInput = document.getElementById("title");
-  // const title = titleInput.value;
-
-  // const fileInput = document.getElementById("file");
-  // const file = fileInput.files[0];
-
-  // const categorySelect = document.getElementById("category");
-  // const category = categorySelect.value;
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    // formData.append("title", title);
-    // formData.append("image", file);
-    // formData.append("category", category);
-
     const res = await addWorks(formData);
-    if (res.status === 201) showSuccess("Ajout du travaux avec succes");
+
+    // if (res.status === 201) showSuccess("Ajout du travaux avec succes");
+
+    /// pour Nettoyer l'interface d'ajout de travaux
+    const addNewWorkImg = document.querySelector(".addNewWorkImg");
+    addNewWorkImg.remove();
+    const hideOnDisplayAddWorks = document.querySelectorAll(
+      ".hideOnDisplayAddWorks"
+    );
+    for (let i of hideOnDisplayAddWorks) {
+      i.classList.remove("hide");
+    }
+
+    form.reset();
   });
 }
 
