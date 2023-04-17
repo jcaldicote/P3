@@ -46,17 +46,3 @@ export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
 export const deleteWorks = (id) => apiFetch("DELETE", `/api/works/${id}`);
 export const addWorks = (formData) => apiFetch("POST", "/api/works", formData);
-
-// export async function deleteWorks2(id) {
-//   const url = `http://localhost:5678/api/works/${id}`;
-//   const token = JSON.parse(localStorage.getItem("token"));
-//   await fetch(url, {
-//     method: "DELETE",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-// }
-
-// export const deleteWorks = deleteWorks1;
