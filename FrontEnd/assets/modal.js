@@ -122,7 +122,7 @@ addPic.addEventListener("click", () => {
 
 uploadImg();
 
-/////////// Mécanisme pour uploader une image non fonctionnel
+/////////// Mécanisme pour uploader une image
 
 function uploadImg() {
   const image_input = document.querySelector(".inputFormAddImg");
@@ -149,7 +149,7 @@ function uploadImg() {
   });
 }
 
-///////  Mécanisme pour envoyer un nouveau projet -test code
+///////  Mécanisme pour envoyer un nouveau projet
 
 async function addNewWorks() {
   const form = document.querySelector(".formAddWorks");
