@@ -151,53 +151,31 @@ function uploadImg() {
 ///////  Mécanisme pour envoyer un nouveau projet -test code
 
 async function addNewWorks() {
-  const submitBtn = document.querySelector(".formAddWorks");
+  const form = document.querySelector(".formAddWorks");
 
-  const titleInput = document.getElementById("title");
-  const title = titleInput.value;
+  // const titleInput = document.getElementById("title");
+  // const title = titleInput.value;
 
-  const fileInput = document.getElementById("file");
-  const file = fileInput.files[0];
+  // const fileInput = document.getElementById("file");
+  // const file = fileInput.files[0];
 
-  const categorySelect = document.getElementById("category");
-  const category = categorySelect.value;
+  // const categorySelect = document.getElementById("category");
+  // const category = categorySelect.value;
 
-  submitBtn.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("image", file);
-    formData.append("category", category);
+    const formData = new FormData(form);
+    // formData.append("title", title);
+    // formData.append("image", file);
+    // formData.append("category", category);
 
     const res = await addWorks(formData);
+    if (res.status === 201) showSuccess("Ajout du travaux avec succes");
   });
 }
 
 addNewWorks();
-// const apiUrl = "http://localhost:5678/api/works";
 
-// const formData = new FormData();
-
-// const titleInput = document.querySelector('input[name="title"]');
-// const title = titleInput.value;
-
-// const fileInput = document.querySelector('input[name="image"]');
-// const file = fileInput.files[0];
-
-// const categorySelect = document.querySelector('select[id="category"]');
-// const category = categorySelect.value;
-
-// formData.append("title", title);
-// formData.append("image", file);
-// formData.append("category", category);
-
-// console.log(formData);
-
-// const token = JSON.parse(`${localStorage.getItem("token")}`);
-// await fetch(apiUrl, {
-//   method: "POST",
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-//   body: formData,
-// });
+function showSuccess(message) {
+  alert(message);
+}
