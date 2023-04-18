@@ -31,7 +31,7 @@ const logOut = document.querySelector(".logOut");
 logOut.addEventListener("click", (e) => {
   e.preventDefault();
   localStorage.clear();
-  location.pathname = "/";
+  window.location.href = "/";
 });
 
 //pour le rendu des catégorie dans la section pour ajouter des travaux

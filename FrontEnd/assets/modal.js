@@ -78,13 +78,11 @@ modalButtons.addEventListener("click", function (e) {
   modalClose.addEventListener("click", () => {
     modal.classList.remove("show");
     modalModifyButton.style.display = "none";
-    // modalBody.innerHTML = "";
   });
 
   modal.addEventListener("click", function () {
     this.classList.remove("show");
     modalModifyButton.style.display = "none";
-    // modalBody.innerHTML = "";
   });
   modal.children[0].addEventListener("click", function (e) {
     e.stopPropagation();
@@ -158,8 +156,8 @@ async function addNewWorks() {
     e.preventDefault();
     const formData = new FormData(form);
     const res = await addWorks(formData);
-
-    // if (res.status === 201) showSuccess("Ajout du travaux avec succes");
+    console.log(res);
+    if (res.status === 201) showSuccess("Ajout du travaux avec succes");
 
     /// pour Nettoyer l'interface d'ajout de travaux
     const addNewWorkImg = document.querySelector(".addNewWorkImg");
