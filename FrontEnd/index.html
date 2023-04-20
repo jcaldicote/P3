@@ -113,17 +113,40 @@
         </div>
       </nav>
     </footer>
-    <div class="modal" id="modal" role="dialog">
-      <div class="modal-content">
+    <div class="modal hide" id="modal" role="dialog">
+      <div class="modal-content modal-galery">
+        <div class="modal-close" data-dismiss="dialog">X</div>
+
+        <div class="modal-header">
+          <p class="hideOnAddPicMode">Galerie photo</p>
+        </div>
+        <div class="modal-body hideOnAddPicMode"></div>
+        <hr class="hideOnAddPicMode" />
+        <div class="modal-footer">
+          <div class="addPicModal hideOnAddPicMode">
+            <a
+              href="#"
+              role="button"
+              class="addPic"
+              data-target="#modal"
+              data-toggle="modal"
+              >Ajouter une photo</a
+            >
+          </div>
+          <div class="delPicModal hideOnAddPicMode">
+            <a href="#" class="delPic">Supprimer la galerie</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-content modal-addphoto">
         <div class="modal-close" data-dismiss="dialog">X</div>
         <div class="backIcon">
           <a href="#"><img src="./assets/images/back.svg" alt="" /></a>
         </div>
         <div class="modal-header">
-          <p class="hideOnAddPicMode">Galerie photo</p>
           <p class="addPhoto">Ajout photo</p>
         </div>
-        <div class="modal-body hideOnAddPicMode"></div>
+
         <form
           class="formAddWorks"
           name="addWork"
@@ -161,15 +184,6 @@
           <hr class="hrAddWorks" />
           <button class="confirm-Btn" type="submit">Valider</button>
         </form>
-        <hr class="hideOnAddPicMode" />
-        <div class="modal-footer">
-          <div class="addPicModal hideOnAddPicMode">
-            <a href="#" role="button" class="addPic">Ajouter une photo</a>
-          </div>
-          <div class="delPicModal hideOnAddPicMode">
-            <a href="#" class="delPic">Supprimer la galerie</a>
-          </div>
-        </div>
       </div>
     </div>
     <script src="./assets/script.js" type="module"></script>

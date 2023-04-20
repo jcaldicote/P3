@@ -8,7 +8,7 @@ const modalModifyButton = document.querySelector(".isAdminModal");
 const modalBody = document.querySelector(".modal-body");
 const modalClose = modal.querySelector("[data-dismiss=dialog]");
 
-//affichage de la galerie par défaut dans la modale non affiché
+///affichage de la galerie par défaut dans la modale non affiché
 
 function renderWorkModal(work) {
   const workElm = createAppend("figure", modalBody);
@@ -29,7 +29,7 @@ function renderWorkModal(work) {
   iconElm2.classList.add("fa-regular");
   iconElm2.classList.add("fa-trash-can");
 
-  //Pour la suppressin des travaux
+  ///Pour la suppressin des travaux
 
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
@@ -55,25 +55,17 @@ async function renderWorksModalAll() {
 }
 renderWorksModalAll();
 
-//affichage de la modale
+///affichage de la modale
 
 modalButtons.addEventListener("click", function (e) {
   e.preventDefault();
 
   const target = this.dataset.target;
 
-  const modal = document.querySelector(target);
-
-  modal.classList.add("show");
+  displayModal(target, ".modal-galery");
   modalModifyButton.style.display = "block";
 
-  const formAddWorks = document.querySelector(".formAddWorks");
-  formAddWorks.classList.add("hide");
-
-  const addPhoto = document.querySelector(".addPhoto");
-  addPhoto.classList.add("hide");
-
-  //pour fermer la modale
+  ///pour fermer la modale
 
   modalClose.addEventListener("click", () => {
     modal.classList.remove("show");
@@ -89,32 +81,22 @@ modalButtons.addEventListener("click", function (e) {
   });
 });
 
-// Création de l'interface Ajout photo
+/// Création de l'interface Ajout photo
 
 const addPic = document.querySelector(".addPic");
-addPic.addEventListener("click", () => {
-  const hideOnAddPicMode = document.querySelectorAll(".hideOnAddPicMode");
-  for (let i of hideOnAddPicMode) {
-    i.classList.add("hide");
-  }
+addPic.addEventListener("click", function () {
   const appearArrowBack = document.querySelector(".backIcon");
-  appearArrowBack.classList.add("display");
-  const formAddWorks = document.querySelector(".formAddWorks");
-  formAddWorks.classList.remove("hide");
-  const addPhoto = document.querySelector(".addPhoto");
-  addPhoto.classList.remove("hide");
 
-  // pour revenir sur la modale delete Works via fleche back
+  const target = this.dataset.target;
+  displayModal(target, ".modal-addphoto");
+  hideModal(".modal-galery");
+
+  /// pour revenir sur la modale delete Works via fleche back
 
   let picadd = document.querySelector(".addNewWorkImg");
   appearArrowBack.addEventListener("click", () => {
-    for (let i of hideOnAddPicMode) {
-      i.classList.remove("hide");
-    }
-    appearArrowBack.classList.remove("display");
-    formAddWorks.classList.add("hide");
-    addPhoto.classList.add("hide");
-    document.getElementById("addWork").reset();
+    displayModal(target, ".modal-galery");
+    hideModal(".modal-addphoto");
   });
 });
 
@@ -155,9 +137,10 @@ async function addNewWorks() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
+    console.log(formData);
     const res = await addWorks(formData);
     console.log(res);
-    if (res.status === 201) showSuccess("Ajout du travaux avec succes");
+    if (res.id != null) showSuccess("Ajout du travaux avec succes");
 
     /// pour Nettoyer l'interface d'ajout de travaux
     const addNewWorkImg = document.querySelector(".addNewWorkImg");
@@ -170,6 +153,8 @@ async function addNewWorks() {
     }
 
     form.reset();
+    document.querySelector(".modal-galery").classList.remove("hide");
+    hideModal(".modal-addphoto");
   });
 }
 
@@ -177,4 +162,20 @@ addNewWorks();
 
 function showSuccess(message) {
   alert(message);
+}
+
+function displayModal(modal, page) {
+  const modalEl = document.querySelector(`${modal}`);
+  modalEl.classList.remove("hide");
+
+  const pages = document.querySelectorAll(`${modal}>*`);
+  pages.forEach((e) => e.classList.add("hide"));
+
+  const pageEl = document.querySelector(`${modal}>${page}`);
+  pageEl.classList.remove("hide");
+}
+
+function hideModal(modal) {
+  const modalEl = document.querySelector(`${modal}`);
+  modalEl.classList.add("hide");
 }
