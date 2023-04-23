@@ -7,6 +7,7 @@ const modalButtons = document.querySelector("[data-toggle = modal");
 const modalModifyButton = document.querySelector(".isAdminModal");
 const modalBody = document.querySelector(".modal-body");
 const modalClose = modal.querySelector("[data-dismiss=dialog]");
+const modalClosePic = document.querySelector(".modal-close-pic");
 
 ///affichage de la galerie par défaut dans la modale non affiché
 
@@ -68,14 +69,16 @@ modalButtons.addEventListener("click", function (e) {
   ///pour fermer la modale
 
   modalClose.addEventListener("click", () => {
-    modal.classList.remove("show");
+    // modal.classList.remove("show");
+    hideModal(".modal");
     modalModifyButton.style.display = "none";
   });
 
-  modal.addEventListener("click", function () {
-    this.classList.remove("show");
-    modalModifyButton.style.display = "none";
-  });
+  // modal.addEventListener("click", function () {
+  //   // this.classList.remove("show");
+  //   this.classList.add("hide");
+  //   modalModifyButton.style.display = "none";
+  // });
   modal.children[0].addEventListener("click", function (e) {
     e.stopPropagation();
   });
@@ -97,6 +100,9 @@ addPic.addEventListener("click", function () {
   appearArrowBack.addEventListener("click", () => {
     displayModal(target, ".modal-galery");
     hideModal(".modal-addphoto");
+  });
+  modalClosePic.addEventListener("click", () => {
+    hideModal(".modal");
   });
 });
 
@@ -137,24 +143,26 @@ async function addNewWorks() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    console.log(formData);
     const res = await addWorks(formData);
     console.log(res);
-    if (res.id != null) showSuccess("Ajout du travaux avec succes");
+    if (res.id === undefined)
+      alert("Merci de saisir tous les champs du formulaire !!!");
+    else {
+      /// pour Nettoyer l'interface d'ajout de travaux
+      alert("Ajout du travail avec succés");
+      const addNewWorkImg = document.querySelector(".addNewWorkImg");
+      addNewWorkImg.remove();
+      const hideOnDisplayAddWorks = document.querySelectorAll(
+        ".hideOnDisplayAddWorks"
+      );
+      for (let i of hideOnDisplayAddWorks) {
+        i.classList.remove("hide");
+      }
 
-    /// pour Nettoyer l'interface d'ajout de travaux
-    const addNewWorkImg = document.querySelector(".addNewWorkImg");
-    addNewWorkImg.remove();
-    const hideOnDisplayAddWorks = document.querySelectorAll(
-      ".hideOnDisplayAddWorks"
-    );
-    for (let i of hideOnDisplayAddWorks) {
-      i.classList.remove("hide");
+      form.reset();
+      document.querySelector(".modal-galery").classList.remove("hide");
+      hideModal(".modal-addphoto");
     }
-
-    form.reset();
-    document.querySelector(".modal-galery").classList.remove("hide");
-    hideModal(".modal-addphoto");
   });
 }
 
