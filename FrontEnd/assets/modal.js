@@ -2,6 +2,7 @@ import { fetchWorks } from "./api.js";
 import { createAppend } from "./dom.js";
 import { deleteWorks } from "./api.js";
 import { addWorks } from "./api.js";
+import { renderWork } from "./galery.js";
 
 const modalButtons = document.querySelector("[data-toggle = modal");
 const modalModifyButton = document.querySelector(".isAdminModal");
@@ -141,7 +142,6 @@ async function addNewWorks() {
     e.preventDefault();
     const formData = new FormData(form);
     const res = await addWorks(formData);
-    console.log(res);
     if (res.id === undefined)
       alert("Merci de saisir tous les champs du formulaire !!!");
     else {
@@ -159,6 +159,8 @@ async function addNewWorks() {
       form.reset();
       document.querySelector(".modal-galery").classList.remove("hide");
       hideModal(".modal-addphoto");
+      renderWorkModal(res);
+      renderWork(res);
     }
   });
 }
