@@ -1,3 +1,5 @@
+/// Check du token
+
 export function check() {
   try {
     return JSON.parse(localStorage.getItem("token"));
@@ -6,6 +8,8 @@ export function check() {
     return false;
   }
 }
+
+/// Pour sauvegarder le token
 
 export function tokenSave(token) {
   localStorage.setItem("token", JSON.stringify(token));
