@@ -78,10 +78,14 @@ modalButtons.addEventListener("click", function (e) {
   modal.addEventListener("click", function () {
     // this.classList.remove("show");
     // this.classList.add("hide");
+    hideModal(".modal");
+
     modalModifyButton.style.display = "none";
   });
-  modal.children[0].addEventListener("click", function (e) {
-    e.stopPropagation();
+  [...modal.children].forEach((elm) => {
+    elm.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
   });
 });
 
@@ -157,12 +161,13 @@ async function addNewWorks() {
       form.reset();
 
       /// Pour afficher la modale avec la galery photo
-      document.querySelector(".modal-galery").classList.remove("hide");
-      hideModal(".modal-addphoto");
+      // document.querySelector(".modal-galery").classList.remove("hide");
+      // hideModal(".modal-addphoto");
 
       /// Pour afficher l'ajout de travaux dans la modale + celui de la galerie page accueil
       renderWorkModal(res);
       renderWork(res);
+      hideModal(".modal");
     }
   });
 }
