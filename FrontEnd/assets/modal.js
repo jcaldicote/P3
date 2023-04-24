@@ -32,7 +32,7 @@ function renderWorkModal(work) {
   iconElm2.classList.add("fa-regular");
   iconElm2.classList.add("fa-trash-can");
 
-  ///Pour la suppressin des travaux
+  ///Pour la suppression des travaux
 
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
@@ -56,7 +56,6 @@ async function renderWorksModalAll() {
 
   renderWorksModal(travaux);
 }
-renderWorksModalAll();
 
 ///affichage de la modale
 
@@ -104,33 +103,32 @@ document.querySelector(".addPic").addEventListener("click", function () {
   });
 });
 
-uploadImg();
-
 /////////// Mécanisme pour uploader une image
 
 function uploadImg() {
-  const image_input = document.querySelector(".inputFormAddImg");
   let uploaded_image = "";
 
-  image_input.addEventListener("change", function () {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-      uploaded_image = reader.result;
-      const hideOnDisplayAddWorks = document.querySelectorAll(
-        ".hideOnDisplayAddWorks"
-      );
-      for (let i of hideOnDisplayAddWorks) {
-        i.classList.add("hide");
-      }
-      const importPicture = document.querySelector(".importPicture");
-      const addNewWorkImg = createAppend("div", importPicture);
-      addNewWorkImg.setAttribute("class", "addNewWorkImg");
-      document.querySelector(
-        ".addNewWorkImg"
-      ).style.backgroundImage = `url(${uploaded_image})`;
+  document
+    .querySelector(".inputFormAddImg")
+    .addEventListener("change", function () {
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        uploaded_image = reader.result;
+        const hideOnDisplayAddWorks = document.querySelectorAll(
+          ".hideOnDisplayAddWorks"
+        );
+        for (let i of hideOnDisplayAddWorks) {
+          i.classList.add("hide");
+        }
+        const importPicture = document.querySelector(".importPicture");
+        const addNewWorkImg = createAppend("div", importPicture);
+        addNewWorkImg.setAttribute("class", "addNewWorkImg");
+        document.querySelector(
+          ".addNewWorkImg"
+        ).style.backgroundImage = `url(${uploaded_image})`;
+      });
+      reader.readAsDataURL(this.files[0]);
     });
-    reader.readAsDataURL(this.files[0]);
-  });
 }
 
 ///////  Mécanisme pour envoyer un nouveau projet
@@ -157,14 +155,20 @@ async function addNewWorks() {
       }
 
       form.reset();
+
+      /// Pour afficher la modale avec la galery photo
       document.querySelector(".modal-galery").classList.remove("hide");
       hideModal(".modal-addphoto");
+
+      /// Pour afficher l'ajout de travaux dans la modale + celui de la galerie page accueil
       renderWorkModal(res);
       renderWork(res);
     }
   });
 }
 
+renderWorksModalAll();
+uploadImg();
 addNewWorks();
 
 /// function pour faire apparaitre /disparaitre les modales
