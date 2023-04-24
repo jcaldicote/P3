@@ -1,17 +1,23 @@
 import { fetchWorks } from "./api.js";
-import { fetchFilterBar } from "./api.js";
 import { check } from "./auth.js";
 import { renderWorks, renderWorksBar, categorieForAddWorks } from "./galery.js";
 
 const isAdmin = document.querySelectorAll(".isAdmin");
 const isAdminHide = document.querySelectorAll(".isAdminHide");
 
+function filtersFromWorks(works) {
+  const filters = new Set();
+  for (let work of works) filters.add(JSON.stringify(work.category));
+  return [...filters].map((f) => JSON.parse(f));
+}
+
 async function main() {
   const travaux = await fetchWorks();
   renderWorks(travaux);
 
-  const items = await fetchFilterBar();
+  const items = filtersFromWorks(travaux);
   renderWorksBar(items, travaux);
+  categorieForAddWorks(items);
 }
 main();
 
@@ -33,12 +39,3 @@ logOut.addEventListener("click", (e) => {
   localStorage.clear();
   window.location.href = "/";
 });
-
-//pour le rendu des catégorie dans la section pour ajouter des travaux
-
-async function categorieForAddWorksRender() {
-  const category = await fetchFilterBar();
-  categorieForAddWorks(category);
-}
-
-categorieForAddWorksRender();
