@@ -8,6 +8,7 @@ const modalModifyButton = document.querySelector(".isAdminModal");
 const modalBody = document.querySelector(".modal-body");
 const modalClose = modal.querySelector("[data-dismiss=dialog]");
 const modalClosePic = document.querySelector(".modal-close-pic");
+const confirmBtn = document.querySelector(".confirm-Btn");
 
 ///affichage de la galerie par défaut dans la modale non affiché
 
@@ -74,11 +75,11 @@ modalButtons.addEventListener("click", function (e) {
     modalModifyButton.style.display = "none";
   });
 
-  // modal.addEventListener("click", function () {
-  //   // this.classList.remove("show");
-  //   this.classList.add("hide");
-  //   modalModifyButton.style.display = "none";
-  // });
+  modal.addEventListener("click", function () {
+    // this.classList.remove("show");
+    // this.classList.add("hide");
+    modalModifyButton.style.display = "none";
+  });
   modal.children[0].addEventListener("click", function (e) {
     e.stopPropagation();
   });
@@ -86,18 +87,14 @@ modalButtons.addEventListener("click", function (e) {
 
 /// Création de l'interface Ajout photo
 
-const addPic = document.querySelector(".addPic");
-addPic.addEventListener("click", function () {
-  const appearArrowBack = document.querySelector(".backIcon");
-
+document.querySelector(".addPic").addEventListener("click", function () {
   const target = this.dataset.target;
   displayModal(target, ".modal-addphoto");
   hideModal(".modal-galery");
 
   /// pour revenir sur la modale delete Works via fleche back
 
-  let picadd = document.querySelector(".addNewWorkImg");
-  appearArrowBack.addEventListener("click", () => {
+  document.querySelector(".backIcon").addEventListener("click", () => {
     displayModal(target, ".modal-galery");
     hideModal(".modal-addphoto");
   });
@@ -168,9 +165,7 @@ async function addNewWorks() {
 
 addNewWorks();
 
-function showSuccess(message) {
-  alert(message);
-}
+/// function pour faire apparaitre /disparaitre les modales
 
 function displayModal(modal, page) {
   const modalEl = document.querySelector(`${modal}`);
