@@ -260,3 +260,18 @@ hr {
 .hide {
   display: none !important;
 }
+
+.showMessageNOK {
+  color: red;
+  font-family: "Syne";
+  margin-top: -40px;
+  margin-bottom: 10px;
+}
+
+.showMessageOK {
+  color: #1d6154;
+  font-family: "Syne";
+  margin-top: -40px;
+  margin-bottom: 10px;
+  background-color: pink;
+}

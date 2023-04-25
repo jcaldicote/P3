@@ -155,12 +155,13 @@ async function addNewWorks() {
     e.preventDefault();
     const formData = new FormData(form);
     const res = await addWorks(formData);
-    if (res.id === undefined)
-      alert("Merci de saisir tous les champs du formulaire !!!");
-    else {
-      /// pour Nettoyer l'interface d'ajout de travaux
-      alert("Ajout du travail avec succés");
+    if (res.id === undefined) {
+      showMessage("Merci de saisir tous les champs du formulaire !!!");
+      document.querySelector(".showMessage").classList.add("showMessageNOK");
+    } else {
+      showMessage("Ajout du projet avec succés !!!");
       const addNewWorkImg = document.querySelector(".addNewWorkImg");
+      document.querySelector(".showMessage").classList.add("showMessageOK");
       addNewWorkImg.remove();
       const hideOnDisplayAddWorks = document.querySelectorAll(
         ".hideOnDisplayAddWorks"
@@ -168,13 +169,14 @@ async function addNewWorks() {
       for (let i of hideOnDisplayAddWorks) {
         i.classList.remove("hide");
       }
-
       FormReset();
-
       /// Pour afficher l'ajout de travaux dans la modale + celui de la galerie page accueil
       renderWorkModal(res);
       renderWork(res);
-      hideModal(".modal");
+
+      setTimeout(() => {
+        hideModal(".modal");
+      }, 2000);
     }
   });
 }
@@ -206,4 +208,19 @@ function hideModal(modal) {
 function FormReset() {
   const forms = document.querySelector(".formAddWorks");
   forms.reset();
+}
+
+/// Function pour afficher un message lors de l'ajout de travaux
+
+function showMessage(message) {
+  const forms = document.querySelector(".formAddWorks");
+  const spanMessage = createAppend("span", forms);
+  spanMessage.classList.add("showMessage");
+  spanMessage.innerHTML = message;
+  spanMessage.style.display = "inline-block";
+  setTimeout(() => {
+    spanMessage.style.display = "none";
+    spanMessage.innerHTML = "";
+    spanMessage.remove();
+  }, 2000);
 }
