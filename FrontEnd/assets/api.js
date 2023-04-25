@@ -42,7 +42,7 @@ export async function apiFetch(method, url, body, options = {}) {
 }
 
 export const fetchWorks = () => apiFetch("GET", "/api/works");
-export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
+// export const fetchFilterBar = () => apiFetch("GET", "/api/categories");
 export const fetchLogin = (body) => apiFetch("POST", "/api/users/login", body);
 export const deleteWorks = (id) => apiFetch("DELETE", `/api/works/${id}`);
 export const addWorks = (formData) => apiFetch("POST", "/api/works", formData);

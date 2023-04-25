@@ -5,7 +5,7 @@ import { renderWorks, renderWorksBar, categorieForAddWorks } from "./galery.js";
 const isAdmin = document.querySelectorAll(".isAdmin");
 const isAdminHide = document.querySelectorAll(".isAdminHide");
 
-function filtersFromWorks(works) {
+function getFiltersFromWorks(works) {
   const filters = new Set();
   for (let work of works) filters.add(JSON.stringify(work.category));
   return [...filters].map((f) => JSON.parse(f));
@@ -15,7 +15,7 @@ async function main() {
   const travaux = await fetchWorks();
   renderWorks(travaux);
 
-  const items = filtersFromWorks(travaux);
+  const items = getFiltersFromWorks(travaux);
   renderWorksBar(items, travaux);
   categorieForAddWorks(items);
 }

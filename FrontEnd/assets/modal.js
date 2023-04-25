@@ -9,7 +9,7 @@ const modalModifyButton = document.querySelector(".isAdminModal");
 const modalBody = document.querySelector(".modal-body");
 const modalClose = modal.querySelector("[data-dismiss=dialog]");
 const modalClosePic = document.querySelector(".modal-close-pic");
-const confirmBtn = document.querySelector(".confirm-Btn");
+// const confirmBtn = document.querySelector(".confirm-Btn");
 
 ///affichage de la galerie par défaut dans la modale non affiché
 
@@ -61,27 +61,22 @@ async function renderWorksModalAll() {
 
 modalButtons.addEventListener("click", function (e) {
   e.preventDefault();
-
   const target = this.dataset.target;
-
   displayModal(target, ".modal-galery");
   modalModifyButton.style.display = "block";
 
   ///pour fermer la modale
 
   modalClose.addEventListener("click", () => {
-    // modal.classList.remove("show");
     hideModal(".modal");
     modalModifyButton.style.display = "none";
   });
 
   modal.addEventListener("click", function () {
-    // this.classList.remove("show");
-    // this.classList.add("hide");
     hideModal(".modal");
-
     modalModifyButton.style.display = "none";
   });
+
   [...modal.children].forEach((elm) => {
     elm.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -131,6 +126,22 @@ function uploadImg() {
           ".addNewWorkImg"
         ).style.backgroundImage = `url(${uploaded_image})`;
       });
+      document
+        .querySelector(".backIconWithPicLoad")
+        .addEventListener("click", () => {
+          const addNewWorkImg = document.querySelector(".addNewWorkImg");
+          if (addNewWorkImg === null) return;
+          else {
+            addNewWorkImg.remove();
+            const hideOnDisplayAddWorks = document.querySelectorAll(
+              ".hideOnDisplayAddWorks"
+            );
+            for (let i of hideOnDisplayAddWorks) {
+              i.classList.remove("hide");
+            }
+            FormReset();
+          }
+        });
       reader.readAsDataURL(this.files[0]);
     });
 }
@@ -158,11 +169,7 @@ async function addNewWorks() {
         i.classList.remove("hide");
       }
 
-      form.reset();
-
-      /// Pour afficher la modale avec la galery photo
-      // document.querySelector(".modal-galery").classList.remove("hide");
-      // hideModal(".modal-addphoto");
+      FormReset();
 
       /// Pour afficher l'ajout de travaux dans la modale + celui de la galerie page accueil
       renderWorkModal(res);
@@ -192,4 +199,11 @@ function displayModal(modal, page) {
 function hideModal(modal) {
   const modalEl = document.querySelector(`${modal}`);
   modalEl.classList.add("hide");
+}
+
+/// Function pour reset du formulaire
+
+function FormReset() {
+  const forms = document.querySelector(".formAddWorks");
+  forms.reset();
 }
