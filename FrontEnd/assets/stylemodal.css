@@ -11,15 +11,8 @@
   left: 0;
   z-index: 1000;
   display: flex;
-  /* visibility: hidden;
-  opacity: 0; */
   transition: 0.2s;
 }
-
-/* .modal.show {
-  visibility: visible;
-  opacity: 1;
-} */
 
 .modal-content {
   background-color: white;
@@ -120,7 +113,7 @@ hr {
 }
 
 .divIconElm1 {
-  background-color: none;
+  background-color: transparent;
 }
 .divIconElm1:hover {
   background-color: black;
