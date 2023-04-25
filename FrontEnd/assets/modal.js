@@ -96,6 +96,7 @@ document.querySelector(".addPic").addEventListener("click", function () {
   document.querySelector(".backIcon").addEventListener("click", () => {
     displayModal(target, ".modal-galery");
     hideModal(".modal-addphoto");
+    FormReset();
   });
   modalClosePic.addEventListener("click", () => {
     hideModal(".modal");
