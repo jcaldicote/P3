@@ -160,7 +160,7 @@ async function addNewWorks() {
       showMessage("Merci de saisir tous les champs du formulaire !!!");
       document.querySelector(".showMessage").classList.add("showMessageNOK");
     } else {
-      showMessage("Ajout du projet avec succés !!!");
+      showMessage("Ajout du projet avec succès !!!");
       const addNewWorkImg = document.querySelector(".addNewWorkImg");
       document.querySelector(".showMessage").classList.add("showMessageOK");
       addNewWorkImg.remove();
@@ -215,13 +215,16 @@ function FormReset() {
 
 function showMessage(message) {
   const forms = document.querySelector(".formAddWorks");
+  const confimBtn = document.querySelector(".confirm-Btn");
   const spanMessage = createAppend("span", forms);
   spanMessage.classList.add("showMessage");
   spanMessage.innerHTML = message;
   spanMessage.style.display = "inline-block";
+  confimBtn.setAttribute("disabled", "true");
   setTimeout(() => {
     spanMessage.style.display = "none";
     spanMessage.innerHTML = "";
     spanMessage.remove();
+    confimBtn.removeAttribute("disabled", "true");
   }, 2000);
 }
