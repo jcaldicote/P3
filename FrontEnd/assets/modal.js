@@ -9,7 +9,6 @@ const modalModifyButton = document.querySelector(".isAdminModal");
 const modalBody = document.querySelector(".modal-body");
 const modalClose = modal.querySelector("[data-dismiss=dialog]");
 const modalClosePic = document.querySelector(".modal-close-pic");
-// const confirmBtn = document.querySelector(".confirm-Btn");
 
 ///affichage de la galerie par défaut dans la modale non affiché
 
