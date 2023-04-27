@@ -4,7 +4,8 @@ export const gallery = document.querySelector(".gallery");
 export const filterBar = document.querySelector(".filterBar");
 const categorieElts = document.querySelector("#category");
 
-/// Affichage de la galerie par défaut
+/// Function affichage de la galerie par défaut
+
 export function renderWork(work) {
   const workElm = createAppend("figure", gallery);
   workElm.dataset.id = work.id;
@@ -19,7 +20,8 @@ export function renderWorks(works) {
   for (const work of works) renderWork(work);
 }
 
-///  Affichage dans le menu Filtre de l'option "Tous" + affichage de la recherche
+/// Function affichage dans le menu Filtre de l'option "Tous" + affichage de la recherche
+
 export function renderItemAll(works) {
   const itemAll = createAppend("button", filterBar);
   itemAll.textContent = "Tous";
@@ -30,8 +32,9 @@ export function renderItemAll(works) {
   });
 }
 
-///  Affichage dans le menu Filtre de l'option "Objets","Appartements","Hotels & restaurants"
+///  Function affichage dans le menu Filtre de l'option "Objets","Appartements","Hotels & restaurants"
 /// + affichage du le recherche
+
 export function renderWorkBar(categorie, works) {
   const btnElm = createAppend("button", filterBar);
   btnElm.innerText = categorie.name;
@@ -52,7 +55,7 @@ export function renderWorksBar(workBars, works) {
   }
 }
 
-/// pour le rendu des catégorie dans la section pour ajouter des travaux
+/// Function pour le rendu des catégorie dans la section pour ajouter des travaux
 
 export function categorieForAddWork(category) {
   const categoryElm = createAppend("option", categorieElts);

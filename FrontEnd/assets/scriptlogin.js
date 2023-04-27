@@ -1,7 +1,7 @@
 import { fetchLogin } from "./api.js";
 import { tokenSave } from "./auth.js";
 
-////phase du Login
+////Mécanisme pour la phase de connexion
 
 const formEl = document.querySelector("#loginForm");
 const loginReject = document.querySelector(".loginReject");

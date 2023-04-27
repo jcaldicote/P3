@@ -57,7 +57,7 @@ async function renderWorksModalAll() {
   renderWorksModal(travaux);
 }
 
-///affichage de la modale
+/// Pour affichager de la modale
 
 modalButtons.addEventListener("click", function (e) {
   e.preventDefault();
@@ -65,7 +65,7 @@ modalButtons.addEventListener("click", function (e) {
   displayModal(target, ".modal-galery");
   modalModifyButton.style.display = "block";
 
-  ///pour fermer la modale
+  ///Pour fermer la modale
 
   modalClose.addEventListener("click", () => {
     hideModal(".modal");
@@ -171,7 +171,9 @@ async function addNewWorks() {
         i.classList.remove("hide");
       }
       FormReset();
+
       /// Pour afficher l'ajout de travaux dans la modale + celui de la galerie page accueil
+
       renderWorkModal(res);
       renderWork(res);
 
