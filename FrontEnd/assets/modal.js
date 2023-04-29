@@ -56,7 +56,7 @@ async function renderWorksModalAll() {
   renderWorksModal(travaux);
 }
 
-/// Pour affichager de la modale
+/// Pour l'affichage de la modale
 
 modalButtons.addEventListener("click", function (e) {
   e.preventDefault();
