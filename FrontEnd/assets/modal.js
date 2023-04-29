@@ -34,10 +34,13 @@ function renderWorkModal(work) {
   ///Pour la suppression des travaux
 
   iconElm2.addEventListener("click", function () {
-    deleteWorks(work.id);
-    workElm.remove();
-    confirm("Confimer sur Ok pour supprimer le projet ");
-    document.querySelector(`.gallery>[data-id="${work.id}"]`).remove();
+    if (window.confirm("Confirmer sur OK pour supprimer le projet")) {
+      deleteWorks(work.id);
+      workElm.remove();
+      document.querySelector(`.gallery>[data-id="${work.id}"]`).remove();
+    } else {
+      return;
+    }
   });
 
   const imgElm = createAppend("img", workElm);
