@@ -36,6 +36,7 @@ function renderWorkModal(work) {
   iconElm2.addEventListener("click", function () {
     deleteWorks(work.id);
     workElm.remove();
+    confirm("Confimer sur Ok pour supprimer le projet ");
     document.querySelector(`.gallery>[data-id="${work.id}"]`).remove();
   });
 
